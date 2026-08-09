@@ -309,95 +309,64 @@ function logout() {
    ADD PROJECT
 ========================= */
 
+
 async function addProject() {
 
     const title =
-        document.getElementById(
-            "title"
-        ).value.trim();
-
+        document.getElementById("title").value.trim();
 
     const description =
-        document.getElementById(
-            "description"
-        ).value.trim();
-
+        document.getElementById("description").value.trim();
 
     if (!title || !description) {
 
-        document.getElementById(
-            "message"
-        ).textContent =
+        document.getElementById("message").textContent =
             "Plotëso titullin dhe përshkrimin.";
 
         return;
     }
 
-
     const response = await fetch(
-        SUPABASE_URL +
-        "/rest/v1/projects",
+        SUPABASE_URL + "/rest/v1/projects",
         {
             method: "POST",
 
             headers: {
                 "apikey": SUPABASE_KEY,
-
-                "Authorization":
-                    "Bearer " +
-                    accessToken,
-
-                "Content-Type":
-                    "application/json",
-
-                "Prefer":
-                    "return=representation"
+                "Authorization": "Bearer " + accessToken,
+                "Content-Type": "application/json",
+                "Prefer": "return=representation"
             },
 
             body: JSON.stringify({
-
                 title: title,
-
                 description: description,
-
                 image_url: null
-
             })
         }
     );
 
-
-    const data =
-        await response.json();
-
+    const data = await response.json();
 
     if (!response.ok) {
 
-        document.getElementById(
-            "message"
-        ).textContent =
-            "Gabim: " +
-            (data.message || "Nuk u shtua projekti.");
+        document.getElementById("message").textContent =
+            "Gabim: " + (
+                data.message ||
+                data.error_description ||
+                "Nuk u shtua projekti."
+            );
+
+        console.log(data);
 
         return;
     }
 
+    document.getElementById("title").value = "";
+    document.getElementById("description").value = "";
 
-    document.getElementById(
-        "title"
-    ).value = "";
-
-
-    document.getElementById(
-        "description"
-    ).value = "";
-
-
-    document.getElementById(
-        "message"
-    ).textContent =
+    document.getElementById("message").textContent =
         "Projekti u shtua me sukses ✓";
-
 
     loadProjects();
 }
