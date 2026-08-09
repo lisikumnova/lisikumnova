@@ -1,0 +1,463 @@
+```html
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Puna Ime | Lisi Kumnova</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f3ef;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+
+        header {
+            background: #2f2a3a;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #d8a7b1;
+        }
+
+        /* HERO */
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px 50px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            color: #2f2a3a;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            font-size: 18px;
+            color: #666;
+        }
+
+        /* PROJECTS */
+
+        .projects {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 8% 80px;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .project {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: 0.35s;
+        }
+
+        .project:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        /* PROJECT IMAGE */
+
+        .project-image {
+            height: 230px;
+            background: linear-gradient(135deg, #2f2a3a, #8e7894);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h2 {
+            color: #2f2a3a;
+            font-size: 23px;
+            margin-bottom: 10px;
+        }
+
+        .project-content p {
+            color: #666;
+            font-size: 15px;
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #eee7ea;
+            color: #7c5363;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin: 3px;
+        }
+
+        /* BUTTON */
+
+        .button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 18px;
+            background: #2f2a3a;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: #8e5367;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #2f2a3a;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 950px) {
+
+            .projects {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 650px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 7px;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="logo">
+        Lisi Kumnova
+    </div>
+
+    <nav>
+
+        <a href="index.html">Kryefaqja</a>
+
+        <a href="rreth-meje.html">
+            Rreth Meje
+        </a>
+
+        <a href="aftesite.html">
+            Aftësitë
+        </a>
+
+        <a href="puna.html">
+            Puna Ime
+        </a>
+
+        <a href="kontakti.html">
+            Kontakti
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <h1>Puna Ime</h1>
+
+    <p>
+        Një përzgjedhje e projekteve dhe punëve të mia kreative
+        në dizajn, branding, web design, 3D dhe reklamim.
+    </p>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section class="projects">
+
+
+    <!-- PROJECT 1 -->
+
+    <div class="project">
+
+        <div class="project-image">
+            WEB DESIGN
+        </div>
+
+        <div class="project-content">
+
+            <h2>Web Design</h2>
+
+            <p>
+                Krijimi i faqeve moderne, responsive dhe
+                profesionale për biznese dhe projekte personale.
+            </p>
+
+            <span class="tag">Web Design</span>
+            <span class="tag">UI/UX</span>
+            <span class="tag">HTML</span>
+
+            <br>
+
+            <a href="#" class="button">
+                Shiko Projektin
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- PROJECT 2 -->
+
+    <div class="project">
+
+        <div class="project-image">
+            LOGO DESIGN
+        </div>
+
+        <div class="project-content">
+
+            <h2>Logo Design</h2>
+
+            <p>
+                Dizajnimi i logove unike dhe moderne që
+                përfaqësojnë identitetin e një biznesi.
+            </p>
+
+            <span class="tag">Logo</span>
+            <span class="tag">Graphic Design</span>
+            <span class="tag">Brand Identity</span>
+
+            <br>
+
+            <a href="#" class="button">
+                Shiko Projektin
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- PROJECT 3 -->
+
+    <div class="project">
+
+        <div class="project-image">
+            BRANDING
+        </div>
+
+        <div class="project-content">
+
+            <h2>Branding</h2>
+
+            <p>
+                Krijimi i identitetit vizual të markave,
+                duke përfshirë ngjyrat, tipografinë dhe stilin.
+            </p>
+
+            <span class="tag">Branding</span>
+            <span class="tag">Identity</span>
+            <span class="tag">Visual Design</span>
+
+            <br>
+
+            <a href="#" class="button">
+                Shiko Projektin
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- PROJECT 4 -->
+
+    <div class="project">
+
+        <div class="project-image">
+            3D DESIGN
+        </div>
+
+        <div class="project-content">
+
+            <h2>3D Design</h2>
+
+            <p>
+                Modele dhe ambiente 3D të krijuara për
+                projekte kreative dhe prezantime vizuale.
+            </p>
+
+            <span class="tag">3D</span>
+            <span class="tag">3D Modeling</span>
+            <span class="tag">Rendering</span>
+
+            <br>
+
+            <a href="#" class="button">
+                Shiko Projektin
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- PROJECT 5 -->
+
+    <div class="project">
+
+        <div class="project-image">
+            3D ADVERTISING
+        </div>
+
+        <div class="project-content">
+
+            <h2>3D Advertising</h2>
+
+            <p>
+                Reklama kreative 3D dhe përmbajtje vizuale
+                për produkte, marka dhe rrjete sociale.
+            </p>
+
+            <span class="tag">3D</span>
+            <span class="tag">Advertising</span>
+            <span class="tag">Motion</span>
+
+            <br>
+
+            <a href="#" class="button">
+                Shiko Projektin
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- PROJECT 6 -->
+
+    <div class="project">
+
+        <div class="project-image">
+            GRAPHIC DESIGN
+        </div>
+
+        <div class="project-content">
+
+            <h2>Graphic Design</h2>
+
+            <p>
+                Posterë, materiale promocionale, postime për
+                rrjete sociale dhe materiale të tjera kreative.
+            </p>
+
+            <span class="tag">Graphic Design</span>
+            <span class="tag">Social Media</span>
+            <span class="tag">Creative</span>
+
+            <br>
+
+            <a href="#" class="button">
+                Shiko Projektin
+            </a>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 Lisi Kumnova — Të gjitha të drejtat e rezervuara.
+    </p>
+
+</footer>
+
+
+</body>
+</html>
+```
