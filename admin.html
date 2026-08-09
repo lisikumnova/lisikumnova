@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="sq">
 <head>
@@ -49,7 +50,6 @@ textarea {
     padding: 15px;
     margin-top: 10px;
     margin-bottom: 20px;
-
     background: #111;
     border: 1px solid #333;
     color: white;
@@ -79,6 +79,11 @@ button:hover {
     margin-left: 10px;
 }
 
+.message {
+    margin-top: 15px;
+    color: #55c8ff;
+}
+
 .project {
     border-top: 1px solid #222;
     padding: 20px 0;
@@ -96,11 +101,6 @@ button:hover {
 
 .hidden {
     display: none;
-}
-
-.message {
-    margin-top: 15px;
-    color: #55c8ff;
 }
 </style>
 </head>
@@ -170,7 +170,7 @@ button:hover {
             <label>Përshkrimi</label>
 
             <textarea
-                id="content"
+                id="description"
                 placeholder="Përshkrimi i projektit..."
             ></textarea>
 
@@ -216,7 +216,6 @@ const SUPABASE_URL =
 const SUPABASE_KEY =
     "sb_publishable_2PgPd268AABb6DMFXVno_A_hr5tz83V";
 
-
 let accessToken = null;
 
 
@@ -241,8 +240,7 @@ async function login() {
 
             headers: {
                 "apikey": SUPABASE_KEY,
-                "Content-Type":
-                    "application/json"
+                "Content-Type": "application/json"
             },
 
             body: JSON.stringify({
@@ -319,13 +317,13 @@ async function addProject() {
         ).value.trim();
 
 
-    const content =
+    const description =
         document.getElementById(
-            "content"
+            "description"
         ).value.trim();
 
 
-    if (!title || !content) {
+    if (!title || !description) {
 
         document.getElementById(
             "message"
@@ -360,7 +358,7 @@ async function addProject() {
 
                 title: title,
 
-                content: content,
+                description: description,
 
                 image_url: null
 
@@ -391,7 +389,7 @@ async function addProject() {
 
 
     document.getElementById(
-        "content"
+        "description"
     ).value = "";
 
 
@@ -453,7 +451,7 @@ async function loadProjects() {
                 </h3>
 
                 <p>
-                    ${escapeHtml(project.content)}
+                    ${escapeHtml(project.description)}
                 </p>
 
             </div>
@@ -481,3 +479,4 @@ function escapeHtml(text) {
 
 </body>
 </html>
+```
