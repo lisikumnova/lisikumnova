@@ -1,13 +1,19 @@
 ```html
 <!DOCTYPE html>
 <html lang="sq">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>Admin | Lisi Kumnova</title>
 
+
 <style>
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -15,116 +21,229 @@
 }
 
 body {
+
     background: #050505;
+
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     min-height: 100vh;
-    padding: 40px 7%;
+
+    padding:
+        40px 7%;
 }
 
 .container {
+
     max-width: 900px;
+
     margin: auto;
 }
 
 h1 {
+
     color: #55c8ff;
+
     margin-bottom: 10px;
 }
 
 .subtitle {
+
     color: #777;
+
     margin-bottom: 40px;
 }
 
 .card {
-    border: 1px solid rgba(255,255,255,.1);
-    background: rgba(255,255,255,.025);
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+
+    background:
+        rgba(255,255,255,.025);
+
     padding: 30px;
+
     margin-bottom: 25px;
 }
 
 input,
 textarea {
+
     width: 100%;
+
     padding: 15px;
+
     margin-top: 10px;
+
     margin-bottom: 20px;
+
     background: #111;
-    border: 1px solid #333;
+
+    border:
+        1px solid #333;
+
     color: white;
+
     outline: none;
 }
 
 textarea {
+
     min-height: 150px;
+
     resize: vertical;
 }
 
-button {
-    padding: 14px 25px;
-    border: 1px solid #236886;
-    background: transparent;
-    color: white;
+input[type="file"] {
+
+    padding: 12px;
+
     cursor: pointer;
+}
+
+button {
+
+    padding:
+        14px 25px;
+
+    border:
+        1px solid #236886;
+
+    background:
+        transparent;
+
+    color: white;
+
+    cursor: pointer;
+
     transition: .3s;
 }
 
 button:hover {
+
     background: #38bdf8;
+
     color: #000;
 }
 
 .logout {
+
     margin-left: 10px;
 }
 
 .message {
+
     margin-top: 15px;
+
     color: #55c8ff;
+
+    line-height: 1.6;
 }
 
 .project {
-    border-top: 1px solid #222;
-    padding: 20px 0;
+
+    border-top:
+        1px solid #222;
+
+    padding:
+        20px 0;
 }
 
 .project h3 {
+
     color: #55c8ff;
+
     margin-bottom: 10px;
 }
 
 .project p {
+
     color: #aaa;
+
     line-height: 1.7;
 }
 
+.project-image {
+
+    width: 100%;
+
+    max-width: 350px;
+
+    height: 220px;
+
+    object-fit: cover;
+
+    margin-top: 15px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+}
+
 .hidden {
+
     display: none;
 }
+
+.file-name {
+
+    color: #777;
+
+    font-size: 13px;
+
+    margin-top: -10px;
+
+    margin-bottom: 20px;
+}
+
 </style>
+
 </head>
+
 
 <body>
 
+
 <div class="container">
 
-    <h1>LISI KUMNOVA — ADMIN</h1>
+
+    <h1>
+        LISI KUMNOVA — ADMIN
+    </h1>
+
 
     <p class="subtitle">
         Menaxhimi i projekteve
     </p>
 
 
-    <!-- LOGIN -->
+    <!-- =====================================================
+         LOGIN
+    ====================================================== -->
 
-    <div id="loginBox" class="card">
+    <div
+        id="loginBox"
+        class="card">
 
-        <h2>Admin Login</h2>
+
+        <h2>
+            Admin Login
+        </h2>
+
 
         <br>
 
-        <label>Email</label>
+
+        <label>
+            Email
+        </label>
+
 
         <input
             type="email"
@@ -132,7 +251,11 @@ button:hover {
             placeholder="Email"
         >
 
-        <label>Password</label>
+
+        <label>
+            Password
+        </label>
+
 
         <input
             type="password"
@@ -140,26 +263,53 @@ button:hover {
             placeholder="Password"
         >
 
-        <button onclick="login()">
+
+        <button
+            onclick="login()">
+
             HYR
+
         </button>
 
-        <div id="loginMessage" class="message"></div>
+
+        <div
+            id="loginMessage"
+            class="message">
+        </div>
+
 
     </div>
 
 
-    <!-- ADMIN PANEL -->
 
-    <div id="adminPanel" class="hidden">
+    <!-- =====================================================
+         ADMIN PANEL
+    ====================================================== -->
+
+    <div
+        id="adminPanel"
+        class="hidden">
+
+
+        <!-- =================================================
+             ADD PROJECT
+        ================================================== -->
 
         <div class="card">
 
-            <h2>Shto projekt</h2>
+
+            <h2>
+                Shto projekt
+            </h2>
+
 
             <br>
 
-            <label>Titulli</label>
+
+            <label>
+                Titulli
+            </label>
+
 
             <input
                 type="text"
@@ -167,16 +317,47 @@ button:hover {
                 placeholder="Emri i projektit"
             >
 
-            <label>Përshkrimi</label>
+
+            <label>
+                Përshkrimi
+            </label>
+
 
             <textarea
                 id="description"
                 placeholder="Përshkrimi i projektit..."
             ></textarea>
 
-            <button onclick="addProject()">
+
+            <label>
+                Fotoja e projektit
+            </label>
+
+
+            <input
+                type="file"
+                id="projectImage"
+                accept="image/*"
+                onchange="showFileName()"
+            >
+
+
+            <div
+                id="fileName"
+                class="file-name">
+
+                Asnjë foto nuk është zgjedhur.
+
+            </div>
+
+
+            <button
+                onclick="addProject()">
+
                 + SHTO PROJEKT
+
             </button>
+
 
             <button
                 class="logout"
@@ -186,69 +367,351 @@ button:hover {
 
             </button>
 
-            <div id="message" class="message"></div>
+
+            <div
+                id="message"
+                class="message">
+            </div>
+
 
         </div>
 
+
+
+        <!-- =================================================
+             PROJECTS
+        ================================================== -->
 
         <div class="card">
 
-            <h2>Projektet</h2>
+
+            <h2>
+                Projektet
+            </h2>
+
 
             <br>
 
+
             <div id="projects">
+
                 Duke ngarkuar...
+
             </div>
+
 
         </div>
 
+
     </div>
+
 
 </div>
 
 
+
 <script>
+
+
+/* =========================================================
+   SUPABASE
+========================================================= */
 
 const SUPABASE_URL =
     "https://mbzbxfjxfckovguzftdk.supabase.co";
 
+
 const SUPABASE_KEY =
     "sb_publishable_2PgPd268AABb6DMFXVno_A_hr5tz83V";
+
+
+const BUCKET_NAME =
+    "projects";
+
 
 let accessToken = null;
 
 
-/* =========================
+
+/* =========================================================
    LOGIN
-========================= */
+========================================================= */
 
 async function login() {
 
+
     const email =
-        document.getElementById("email").value.trim();
+        document
+        .getElementById("email")
+        .value
+        .trim();
+
 
     const password =
-        document.getElementById("password").value;
+        document
+        .getElementById("password")
+        .value;
 
 
-    const response = await fetch(
-        SUPABASE_URL +
-        "/auth/v1/token?grant_type=password",
-        {
-            method: "POST",
+    if (!email || !password) {
 
-            headers: {
-                "apikey": SUPABASE_KEY,
-                "Content-Type": "application/json"
-            },
+        document
+        .getElementById("loginMessage")
+        .textContent =
+            "Shkruaj email-in dhe password-in.";
 
-            body: JSON.stringify({
-                email: email,
-                password: password
-            })
+        return;
+    }
+
+
+    try {
+
+
+        const response =
+            await fetch(
+
+                SUPABASE_URL +
+                "/auth/v1/token?grant_type=password",
+
+                {
+
+                    method: "POST",
+
+                    headers: {
+
+                        "apikey":
+                            SUPABASE_KEY,
+
+                        "Content-Type":
+                            "application/json"
+
+                    },
+
+                    body:
+                        JSON.stringify({
+
+                            email:
+                                email,
+
+                            password:
+                                password
+
+                        })
+
+                }
+
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            document
+            .getElementById(
+                "loginMessage"
+            )
+            .textContent =
+
+                data.error_description ||
+                data.msg ||
+                "Login nuk u krye.";
+
+            return;
         }
-    );
+
+
+        accessToken =
+            data.access_token;
+
+
+        document
+        .getElementById(
+            "loginBox"
+        )
+        .classList
+        .add("hidden");
+
+
+        document
+        .getElementById(
+            "adminPanel"
+        )
+        .classList
+        .remove("hidden");
+
+
+        document
+        .getElementById(
+            "loginMessage"
+        )
+        .textContent = "";
+
+
+        loadProjects();
+
+
+    } catch (error) {
+
+
+        console.error(error);
+
+
+        document
+        .getElementById(
+            "loginMessage"
+        )
+        .textContent =
+            "Gabim gjatë lidhjes me Supabase.";
+
+    }
+
+}
+
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+function logout() {
+
+
+    accessToken = null;
+
+
+    document
+    .getElementById(
+        "adminPanel"
+    )
+    .classList
+    .add("hidden");
+
+
+    document
+    .getElementById(
+        "loginBox"
+    )
+    .classList
+    .remove("hidden");
+
+}
+
+
+
+/* =========================================================
+   FILE NAME
+========================================================= */
+
+function showFileName() {
+
+
+    const fileInput =
+        document
+        .getElementById(
+            "projectImage"
+        );
+
+
+    const fileName =
+        document
+        .getElementById(
+            "fileName"
+        );
+
+
+    if (
+        fileInput.files &&
+        fileInput.files.length > 0
+    ) {
+
+        fileName.textContent =
+            "Fotoja: " +
+            fileInput.files[0].name;
+
+    } else {
+
+        fileName.textContent =
+            "Asnjë foto nuk është zgjedhur.";
+
+    }
+
+}
+
+
+
+/* =========================================================
+   UPLOAD IMAGE
+========================================================= */
+
+async function uploadImage(file) {
+
+
+    if (!file) {
+
+        return null;
+    }
+
+
+    const extension =
+        file.name
+        .split(".")
+        .pop()
+        .toLowerCase();
+
+
+    const fileName =
+        Date.now() +
+        "-" +
+        Math.random()
+            .toString(36)
+            .substring(2) +
+        "." +
+        extension;
+
+
+    const filePath =
+        fileName;
+
+
+    const response =
+        await fetch(
+
+            SUPABASE_URL +
+            "/storage/v1/object/" +
+            BUCKET_NAME +
+            "/" +
+            filePath,
+
+            {
+
+                method: "POST",
+
+                headers: {
+
+                    "apikey":
+                        SUPABASE_KEY,
+
+                    "Authorization":
+                        "Bearer " +
+                        accessToken,
+
+                    "Content-Type":
+                        file.type,
+
+                    "x-upsert":
+                        "false"
+
+                },
+
+                body:
+                    file
+
+            }
+
+        );
 
 
     const data =
@@ -257,195 +720,383 @@ async function login() {
 
     if (!response.ok) {
 
-        document.getElementById(
-            "loginMessage"
-        ).textContent =
-            data.error_description ||
-            "Login nuk u krye.";
+        console.error(
+            "Storage error:",
+            data
+        );
 
-        return;
+
+        throw new Error(
+
+            data.message ||
+            data.error ||
+            "Fotoja nuk u ngarkua."
+
+        );
+
     }
 
 
-    accessToken =
-        data.access_token;
+    const publicUrl =
+        SUPABASE_URL +
+        "/storage/v1/object/public/" +
+        BUCKET_NAME +
+        "/" +
+        filePath;
 
 
-    document.getElementById(
-        "loginBox"
-    ).classList.add("hidden");
-
-
-    document.getElementById(
-        "adminPanel"
-    ).classList.remove("hidden");
-
-
-    loadProjects();
-}
-
-
-/* =========================
-   LOGOUT
-========================= */
-
-function logout() {
-
-    accessToken = null;
-
-    document.getElementById(
-        "adminPanel"
-    ).classList.add("hidden");
-
-
-    document.getElementById(
-        "loginBox"
-    ).classList.remove("hidden");
+    return publicUrl;
 
 }
 
 
-/* =========================
+
+/* =========================================================
    ADD PROJECT
-========================= */
-
+========================================================= */
 
 async function addProject() {
 
+
     const title =
-        document.getElementById("title").value.trim();
+        document
+        .getElementById("title")
+        .value
+        .trim();
+
 
     const description =
-        document.getElementById("description").value.trim();
+        document
+        .getElementById("description")
+        .value
+        .trim();
+
+
+    const imageInput =
+        document
+        .getElementById("projectImage");
+
+
+    const file =
+        imageInput.files[0];
+
+
+    const message =
+        document
+        .getElementById("message");
+
 
     if (!title || !description) {
 
-        document.getElementById("message").textContent =
+        message.textContent =
             "Plotëso titullin dhe përshkrimin.";
 
         return;
     }
 
-    const response = await fetch(
-        SUPABASE_URL + "/rest/v1/projects",
-        {
-            method: "POST",
 
-            headers: {
-                "apikey": SUPABASE_KEY,
-                "Authorization": "Bearer " + accessToken,
-                "Content-Type": "application/json",
-                "Prefer": "return=representation"
-            },
+    try {
 
-            body: JSON.stringify({
-                title: title,
-                description: description,
-                image_url: null
-            })
+
+        message.textContent =
+            "Duke ngarkuar projektin...";
+
+
+        /* ================================================
+           1. UPLOAD FOTO
+        ================================================ */
+
+
+        let imageUrl = null;
+
+
+        if (file) {
+
+            message.textContent =
+                "Duke ngarkuar foton...";
+
+
+            imageUrl =
+                await uploadImage(file);
+
         }
-    );
 
-    const data = await response.json();
 
-    if (!response.ok) {
+        /* ================================================
+           2. INSERT PROJECT
+        ================================================ */
 
-        document.getElementById("message").textContent =
-            "Gabim: " + (
-                data.message ||
-                data.error_description ||
-                "Nuk u shtua projekti."
+
+        message.textContent =
+            "Duke ruajtur projektin...";
+
+
+        const response =
+            await fetch(
+
+                SUPABASE_URL +
+                "/rest/v1/projects",
+
+                {
+
+                    method: "POST",
+
+                    headers: {
+
+                        "apikey":
+                            SUPABASE_KEY,
+
+                        "Authorization":
+                            "Bearer " +
+                            accessToken,
+
+                        "Content-Type":
+                            "application/json",
+
+                        "Prefer":
+                            "return=representation"
+
+                    },
+
+                    body:
+                        JSON.stringify({
+
+                            title:
+                                title,
+
+                            description:
+                                description,
+
+                            image_url:
+                                imageUrl
+
+                        })
+
+                }
+
             );
 
-        console.log(data);
 
-        return;
+        const data =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            console.error(data);
+
+
+            message.textContent =
+                "Gabim: " +
+                (
+                    data.message ||
+                    data.error_description ||
+                    data.hint ||
+                    "Nuk u shtua projekti."
+                );
+
+            return;
+        }
+
+
+        /* ================================================
+           3. RESET FORM
+        ================================================ */
+
+
+        document
+        .getElementById("title")
+        .value = "";
+
+
+        document
+        .getElementById("description")
+        .value = "";
+
+
+        document
+        .getElementById("projectImage")
+        .value = "";
+
+
+        document
+        .getElementById("fileName")
+        .textContent =
+            "Asnjë foto nuk është zgjedhur.";
+
+
+        message.textContent =
+            "Projekti dhe fotografia u shtuan me sukses ✓";
+
+
+        loadProjects();
+
+
+    } catch (error) {
+
+
+        console.error(error);
+
+
+        message.textContent =
+            "Gabim: " +
+            error.message;
+
     }
 
-    document.getElementById("title").value = "";
-    document.getElementById("description").value = "";
-
-    document.getElementById("message").textContent =
-        "Projekti u shtua me sukses ✓";
-
-    loadProjects();
 }
 
 
-/* =========================
+
+/* =========================================================
    LOAD PROJECTS
-========================= */
+========================================================= */
 
 async function loadProjects() {
 
-    const response = await fetch(
-        SUPABASE_URL +
-        "/rest/v1/projects?select=*&order=created_at.desc",
-        {
-            headers: {
-                "apikey":
-                    SUPABASE_KEY
-            }
-        }
-    );
-
-
-    const data =
-        await response.json();
-
 
     const container =
-        document.getElementById(
+        document
+        .getElementById(
             "projects"
         );
 
 
-    if (!Array.isArray(data) ||
-        data.length === 0) {
+    try {
+
+
+        const response =
+            await fetch(
+
+                SUPABASE_URL +
+                "/rest/v1/projects?select=*&order=created_at.desc",
+
+                {
+
+                    headers: {
+
+                        "apikey":
+                            SUPABASE_KEY
+
+                    }
+
+                }
+
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (
+            !Array.isArray(data) ||
+            data.length === 0
+        ) {
+
+            container.innerHTML =
+                "<p style='color:#777'>Nuk ka ende projekte.</p>";
+
+            return;
+        }
+
 
         container.innerHTML =
-            "<p style='color:#777'>Nuk ka ende projekte.</p>";
 
-        return;
+            data
+            .map(
+
+                project => `
+
+                    <div class="project">
+
+
+                        <h3>
+                            ${escapeHtml(
+                                project.title
+                            )}
+                        </h3>
+
+
+                        <p>
+                            ${escapeHtml(
+                                project.description
+                            )}
+                        </p>
+
+
+                        ${
+                            project.image_url
+
+                            ?
+
+                            `
+                            <img
+                                src="${escapeHtml(
+                                    project.image_url
+                                )}"
+                                class="project-image"
+                                alt="${escapeHtml(
+                                    project.title
+                                )}"
+                            >
+                            `
+
+                            :
+
+                            ""
+                        }
+
+
+                    </div>
+
+                `
+
+            )
+            .join("");
+
+
+
+    } catch (error) {
+
+
+        console.error(error);
+
+
+        container.innerHTML =
+            "<p style='color:#f66'>Nuk u ngarkuan projektet.</p>";
+
     }
 
-
-    container.innerHTML =
-        data.map(project => `
-
-            <div class="project">
-
-                <h3>
-                    ${escapeHtml(project.title)}
-                </h3>
-
-                <p>
-                    ${escapeHtml(project.description)}
-                </p>
-
-            </div>
-
-        `).join("");
 }
 
 
-/* =========================
+
+/* =========================================================
    SECURITY
-========================= */
+========================================================= */
 
 function escapeHtml(text) {
 
+
     const div =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
+
 
     div.textContent =
         text || "";
 
+
     return div.innerHTML;
+
 }
 
 </script>
 
+
 </body>
+
 </html>
 ```
