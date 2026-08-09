@@ -5,11 +5,18 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>Lisi Kumnova | Technology · Design · Digital</title>
 
+
 <style>
+
+/* =========================================================
+   RESET
+========================================================= */
 
 * {
     margin: 0;
@@ -22,43 +29,69 @@ html {
 }
 
 body {
+
     background: #050505;
+
     color: #ffffff;
-    font-family: Arial, Helvetica, sans-serif;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     overflow-x: hidden;
 }
 
+
+/* =========================================================
+   GLOBAL BACKGROUND
+========================================================= */
+
 body::before {
+
     content: "";
+
     position: fixed;
+
     inset: 0;
+
     z-index: -2;
 
     background:
+
         radial-gradient(
             circle at 15% 20%,
             rgba(0,150,255,.12),
             transparent 30%
         ),
+
         radial-gradient(
             circle at 85% 70%,
             rgba(120,0,255,.12),
             transparent 30%
         ),
+
         #050505;
 }
 
+
 .grid {
+
     position: fixed;
+
     inset: 0;
+
     z-index: -1;
+
     pointer-events: none;
 
     background-image:
+
         linear-gradient(
             rgba(255,255,255,.025) 1px,
             transparent 1px
         ),
+
         linear-gradient(
             90deg,
             rgba(255,255,255,.025) 1px,
@@ -81,15 +114,21 @@ body::before {
 ========================================================= */
 
 #intro {
+
     position: fixed;
+
     inset: 0;
+
     background: #030303;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     z-index: 9999;
+
     overflow: hidden;
 
     transition:
@@ -98,12 +137,17 @@ body::before {
 }
 
 #intro.hide {
+
     opacity: 0;
+
     visibility: hidden;
+
     pointer-events: none;
 }
 
+
 .orb {
+
     position: absolute;
 
     width: 400px;
@@ -112,6 +156,7 @@ body::before {
     border-radius: 50%;
 
     background:
+
         radial-gradient(
             circle,
             rgba(0,180,255,.18),
@@ -126,22 +171,27 @@ body::before {
         infinite alternate;
 }
 
+
 @keyframes orbMove {
 
     from {
+
         transform:
             scale(.7)
             translate(-100px,-50px);
     }
 
     to {
+
         transform:
             scale(1.2)
             translate(100px,50px);
     }
 }
 
+
 .ring {
+
     position: absolute;
 
     width: 260px;
@@ -163,31 +213,43 @@ body::before {
         infinite;
 }
 
+
 @keyframes ringSpin {
 
     from {
+
         transform:
             rotate(0deg)
             scale(.7);
     }
 
     to {
+
         transform:
             rotate(360deg)
             scale(1.2);
     }
 }
 
+
 .intro-content {
+
     text-align: center;
+
     position: relative;
+
     z-index: 5;
 }
 
+
 .intro-small {
+
     font-size: 10px;
+
     letter-spacing: 7px;
+
     color: #58c7ff;
+
     margin-bottom: 25px;
 
     opacity: 0;
@@ -196,14 +258,18 @@ body::before {
         fadeIn 1s .7s forwards;
 }
 
+
 .intro-name {
+
     font-size:
         clamp(3rem,10vw,8rem);
 
     font-weight: 700;
+
     letter-spacing: 8px;
 
     background:
+
         linear-gradient(
             90deg,
             #ffffff,
@@ -212,6 +278,7 @@ body::before {
         );
 
     -webkit-background-clip: text;
+
     -webkit-text-fill-color: transparent;
 
     opacity: 0;
@@ -225,11 +292,15 @@ body::before {
         1.5s 1s forwards;
 }
 
+
 .intro-sub {
+
     margin-top: 25px;
 
     font-size: 11px;
+
     letter-spacing: 5px;
+
     color: #777;
 
     opacity: 0;
@@ -239,13 +310,17 @@ body::before {
         1s 2s forwards;
 }
 
+
 .intro-line {
+
     width: 0;
+
     height: 1px;
 
     margin: 35px auto;
 
     background:
+
         linear-gradient(
             90deg,
             transparent,
@@ -258,14 +333,19 @@ body::before {
         1.5s 2.3s forwards;
 }
 
+
 @keyframes fadeIn {
+
     to {
         opacity: 1;
     }
 }
 
+
 @keyframes nameAppear {
+
     to {
+
         opacity: 1;
 
         transform:
@@ -274,7 +354,9 @@ body::before {
     }
 }
 
+
 @keyframes lineGrow {
+
     to {
         width: 280px;
     }
@@ -286,11 +368,15 @@ body::before {
 ========================================================= */
 
 .particles {
+
     position: absolute;
+
     inset: 0;
 }
 
+
 .particle {
+
     position: absolute;
 
     width: 2px;
@@ -306,9 +392,11 @@ body::before {
         ease-in-out;
 }
 
+
 @keyframes particleMove {
 
     0% {
+
         opacity: 0;
 
         transform:
@@ -317,10 +405,12 @@ body::before {
     }
 
     40% {
+
         opacity: .8;
     }
 
     100% {
+
         opacity: 0;
 
         transform:
@@ -335,6 +425,7 @@ body::before {
 ========================================================= */
 
 nav {
+
     position: fixed;
 
     top: 0;
@@ -356,13 +447,16 @@ nav {
     z-index: 100;
 
     background:
+
         linear-gradient(
             rgba(5,5,5,.95),
             transparent
         );
 }
 
+
 .logo {
+
     font-size: 20px;
 
     font-weight: bold;
@@ -372,15 +466,21 @@ nav {
     color: #5cc9ff;
 }
 
+
 nav ul {
+
     list-style: none;
 
     display: flex;
 
     gap: 35px;
+
+    align-items: center;
 }
 
+
 nav a {
+
     color: #aaa;
 
     text-decoration: none;
@@ -392,8 +492,66 @@ nav a {
     transition: .3s;
 }
 
+
 nav a:hover {
+
     color: #55c8ff;
+}
+
+
+/* =========================================================
+   LANGUAGE BUTTONS
+========================================================= */
+
+.language-switcher {
+
+    display: flex;
+
+    gap: 5px;
+
+    margin-left: 10px;
+}
+
+
+.language-switcher button {
+
+    background: transparent;
+
+    border:
+        1px solid
+        rgba(255,255,255,.15);
+
+    color: #777;
+
+    padding:
+        7px 9px;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+
+.language-switcher button:hover {
+
+    color: #55c8ff;
+
+    border-color: #55c8ff;
+}
+
+
+.language-switcher button.active {
+
+    color: #55c8ff;
+
+    border-color: #55c8ff;
+
+    background:
+        rgba(60,190,255,.08);
 }
 
 
@@ -402,6 +560,7 @@ nav a:hover {
 ========================================================= */
 
 .hero {
+
     min-height: 100vh;
 
     display: flex;
@@ -414,11 +573,15 @@ nav a:hover {
     position: relative;
 }
 
+
 .hero-content {
+
     max-width: 900px;
 }
 
+
 .tag {
+
     font-size: 10px;
 
     letter-spacing: 5px;
@@ -428,7 +591,9 @@ nav a:hover {
     margin-bottom: 25px;
 }
 
+
 .hero h1 {
+
     font-size:
         clamp(4rem,10vw,9rem);
 
@@ -439,14 +604,18 @@ nav a:hover {
     font-weight: 700;
 }
 
+
 .hero h1 span {
+
     color: transparent;
 
     -webkit-text-stroke:
         1px #4dc4ff;
 }
 
+
 .hero-description {
+
     margin-top: 40px;
 
     max-width: 700px;
@@ -458,7 +627,9 @@ nav a:hover {
     line-height: 1.8;
 }
 
+
 .hero-buttons {
+
     margin-top: 35px;
 
     display: flex;
@@ -468,7 +639,9 @@ nav a:hover {
     flex-wrap: wrap;
 }
 
+
 .button {
+
     padding:
         15px 25px;
 
@@ -486,7 +659,9 @@ nav a:hover {
     transition: .4s;
 }
 
+
 .button:hover {
+
     background: #38bdf8;
 
     color: #000;
@@ -498,64 +673,22 @@ nav a:hover {
 
 
 /* =========================================================
-   GENERAL SECTION
-========================================================= */
-
-.section {
-    padding:
-        130px 10%;
-
-    border-top:
-        1px solid
-        rgba(255,255,255,.06);
-}
-
-.section-label {
-    color: #4cc5ff;
-
-    font-size: 10px;
-
-    letter-spacing: 4px;
-}
-
-.section h2 {
-    margin-top: 20px;
-
-    font-size:
-        clamp(2.5rem,6vw,5rem);
-
-    font-weight: 700;
-}
-
-.section-intro {
-    max-width: 800px;
-
-    margin-top: 25px;
-
-    color: #999;
-
-    line-height: 1.9;
-
-    font-size: 15px;
-}
-
-
-/* =========================================================
    ABOUT
 ========================================================= */
 
 .about-home {
+
     padding:
         130px 10%;
 
     border-top:
         1px solid
         rgba(255,255,255,.06);
-
-    background: transparent;
 }
 
+
 .about-home-container {
+
     max-width: 1200px;
 
     margin: auto;
@@ -570,11 +703,15 @@ nav a:hover {
     align-items: center;
 }
 
+
 .about-home-image {
+
     position: relative;
 }
 
+
 .about-home-image::before {
+
     content: "";
 
     position: absolute;
@@ -592,7 +729,9 @@ nav a:hover {
     z-index: 0;
 }
 
+
 .about-home-image img {
+
     width: 100%;
 
     max-width: 450px;
@@ -616,11 +755,15 @@ nav a:hover {
         rgba(0,0,0,.6);
 }
 
+
 .about-home-content {
+
     max-width: 650px;
 }
 
+
 .small-title {
+
     color: #4cc5ff;
 
     font-size: 10px;
@@ -630,7 +773,9 @@ nav a:hover {
     letter-spacing: 4px;
 }
 
+
 .about-home-content h2 {
+
     font-size:
         clamp(2.5rem,6vw,5rem);
 
@@ -642,7 +787,9 @@ nav a:hover {
     line-height: 1;
 }
 
+
 .about-home-content p {
+
     font-size: 15px;
 
     color: #888;
@@ -652,11 +799,15 @@ nav a:hover {
     line-height: 1.9;
 }
 
+
 .about-home-content strong {
+
     color: #fff;
 }
 
+
 .about-button {
+
     display: inline-block;
 
     margin-top: 20px;
@@ -678,7 +829,9 @@ nav a:hover {
     transition: .4s;
 }
 
+
 .about-button:hover {
+
     background: #38bdf8;
 
     color: #000;
@@ -693,10 +846,61 @@ nav a:hover {
 
 
 /* =========================================================
+   GENERAL SECTION
+========================================================= */
+
+.section {
+
+    padding:
+        130px 10%;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.06);
+}
+
+
+.section-label {
+
+    color: #4cc5ff;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+}
+
+
+.section h2 {
+
+    margin-top: 20px;
+
+    font-size:
+        clamp(2.5rem,6vw,5rem);
+
+    font-weight: 700;
+}
+
+
+.section-intro {
+
+    max-width: 800px;
+
+    margin-top: 25px;
+
+    color: #999;
+
+    line-height: 1.9;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
    SKILLS
 ========================================================= */
 
 .skills {
+
     margin-top: 60px;
 
     display: grid;
@@ -707,7 +911,9 @@ nav a:hover {
     gap: 18px;
 }
 
+
 .skill {
+
     padding: 35px;
 
     min-height: 220px;
@@ -726,7 +932,9 @@ nav a:hover {
     transition: .5s;
 }
 
+
 .skill::before {
+
     content: "";
 
     position: absolute;
@@ -744,7 +952,9 @@ nav a:hover {
     transition: .5s;
 }
 
+
 .skill:hover {
+
     transform:
         translateY(-10px);
 
@@ -756,11 +966,15 @@ nav a:hover {
         rgba(0,0,0,.4);
 }
 
+
 .skill:hover::before {
+
     width: 100%;
 }
 
+
 .skill-number {
+
     font-size: 10px;
 
     color: #4ec5ff;
@@ -768,13 +982,17 @@ nav a:hover {
     letter-spacing: 3px;
 }
 
+
 .skill h3 {
+
     margin-top: 55px;
 
     font-size: 25px;
 }
 
+
 .skill p {
+
     margin-top: 15px;
 
     color: #777;
@@ -790,6 +1008,7 @@ nav a:hover {
 ========================================================= */
 
 .projects {
+
     margin-top: 60px;
 
     display: grid;
@@ -800,7 +1019,9 @@ nav a:hover {
     gap: 20px;
 }
 
+
 .project {
+
     min-height: 300px;
 
     padding: 35px;
@@ -810,6 +1031,7 @@ nav a:hover {
         rgba(255,255,255,.08);
 
     background:
+
         linear-gradient(
             135deg,
             rgba(30,30,30,.7),
@@ -819,7 +1041,9 @@ nav a:hover {
     transition: .5s;
 }
 
+
 .project:hover {
+
     transform:
         scale(1.02);
 
@@ -827,7 +1051,9 @@ nav a:hover {
         rgba(70,190,255,.4);
 }
 
+
 .project-number {
+
     color: #4cc5ff;
 
     font-size: 10px;
@@ -835,13 +1061,17 @@ nav a:hover {
     letter-spacing: 3px;
 }
 
+
 .project h3 {
+
     margin-top: 100px;
 
     font-size: 30px;
 }
 
+
 .project p {
+
     margin-top: 15px;
 
     color: #777;
@@ -855,6 +1085,7 @@ nav a:hover {
 ========================================================= */
 
 .gallery {
+
     margin-top: 60px;
 
     min-height: 350px;
@@ -874,7 +1105,9 @@ nav a:hover {
     color: #555;
 }
 
+
 .gallery strong {
+
     display: block;
 
     color: #4cc5ff;
@@ -888,6 +1121,7 @@ nav a:hover {
 ========================================================= */
 
 .contact {
+
     min-height: 70vh;
 
     display: flex;
@@ -897,7 +1131,9 @@ nav a:hover {
     justify-content: center;
 }
 
+
 .contact-links {
+
     margin-top: 50px;
 
     display: flex;
@@ -907,7 +1143,9 @@ nav a:hover {
     flex-wrap: wrap;
 }
 
+
 .contact-link {
+
     padding:
         18px 25px;
 
@@ -926,7 +1164,9 @@ nav a:hover {
     transition: .4s;
 }
 
+
 .contact-link:hover {
+
     border-color:
         #4dc6ff;
 
@@ -943,6 +1183,7 @@ nav a:hover {
 ========================================================= */
 
 footer {
+
     padding:
         40px 10%;
 
@@ -959,7 +1200,9 @@ footer {
     text-align: center;
 }
 
+
 footer p + p {
+
     margin-top: 12px;
 
     color: #4cc5ff;
@@ -973,49 +1216,113 @@ footer p + p {
 @media(max-width:800px) {
 
     nav ul {
-        display: none;
+
+        gap: 10px;
     }
 
+    nav a {
+
+        font-size: 8px;
+    }
+
+    .language-switcher {
+
+        margin-left: 5px;
+    }
+
+    .language-switcher button {
+
+        padding:
+            6px 7px;
+    }
+
+
     .hero {
+
         padding:
             120px 7%;
     }
 
+
     .section {
+
         padding:
             90px 7%;
     }
+
 
     .skills {
+
         grid-template-columns:
             1fr;
     }
+
 
     .projects {
+
         grid-template-columns:
             1fr;
     }
 
+
     .about-home {
+
         padding:
             90px 7%;
     }
 
+
     .about-home-container {
+
         grid-template-columns:
             1fr;
 
         gap: 50px;
     }
 
+
     .about-home-image img {
+
         height: 400px;
+
         margin: auto;
     }
 
+
     .hero h1 {
+
         letter-spacing:
             -3px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media(max-width:500px) {
+
+    nav {
+
+        padding:
+            0 4%;
+    }
+
+    nav ul {
+
+        gap: 7px;
+    }
+
+    nav a {
+
+        display: none;
+    }
+
+    .language-switcher {
+
+        display: flex;
     }
 
 }
@@ -1046,20 +1353,34 @@ footer p + p {
         id="particles">
     </div>
 
+
     <div class="intro-content">
 
-        <div class="intro-small">
-            PERSONAL DIGITAL PORTFOLIO
+        <div
+            class="intro-small"
+            data-sq="PORTOFOLIO PERSONAL DIGJITAL"
+            data-en="PERSONAL DIGITAL PORTFOLIO">
+
+            PORTOFOLIO PERSONAL DIGJITAL
+
         </div>
+
 
         <div class="intro-name">
             LISI KUMNOVA
         </div>
 
+
         <div class="intro-line"></div>
 
-        <div class="intro-sub">
-            TECHNOLOGY · DESIGN · DIGITAL CREATION
+
+        <div
+            class="intro-sub"
+            data-sq="TEKNOLOGJI · DIZAJN · KRIJIM DIGJITAL"
+            data-en="TECHNOLOGY · DESIGN · DIGITAL CREATION">
+
+            TEKNOLOGJI · DIZAJN · KRIJIM DIGJITAL
+
         </div>
 
     </div>
@@ -1077,30 +1398,78 @@ footer p + p {
         LK
     </div>
 
+
     <ul>
 
         <li>
-            <a href="#about">
+            <a
+                href="#about"
+                data-sq="RRETH MEJE"
+                data-en="ABOUT ME">
+
                 RRETH MEJE
+
             </a>
         </li>
 
+
         <li>
-            <a href="#skills">
+            <a
+                href="#skills"
+                data-sq="AFTËSITË"
+                data-en="SKILLS">
+
                 AFTËSITË
+
             </a>
         </li>
 
+
         <li>
-            <a href="#projects">
+            <a
+                href="#projects"
+                data-sq="PUNA"
+                data-en="WORK">
+
                 PUNA
+
             </a>
         </li>
 
+
         <li>
-            <a href="#contact">
+            <a
+                href="#contact"
+                data-sq="KONTAKT"
+                data-en="CONTACT">
+
                 KONTAKT
+
             </a>
+        </li>
+
+
+        <!-- LANGUAGE -->
+
+        <li class="language-switcher">
+
+            <button
+                id="sqBtn"
+                onclick="setLanguage('sq')">
+
+                SQ
+
+            </button>
+
+
+            <button
+                id="enBtn"
+                onclick="setLanguage('en')">
+
+                EN
+
+            </button>
+
         </li>
 
     </ul>
@@ -1116,9 +1485,16 @@ footer p + p {
 
     <div class="hero-content">
 
-        <div class="tag">
-            TECHNOLOGY · DESIGN · DIGITAL
+
+        <div
+            class="tag"
+            data-sq="TEKNOLOGJI · DIZAJN · DIGJITAL"
+            data-en="TECHNOLOGY · DESIGN · DIGITAL">
+
+            TEKNOLOGJI · DIZAJN · DIGJITAL
+
         </div>
+
 
         <h1>
 
@@ -1128,7 +1504,11 @@ footer p + p {
 
         </h1>
 
-        <p class="hero-description">
+
+        <p
+            class="hero-description"
+            data-sq="Profesionist i teknologjisë me shkollim profesional në IT & Elektroteknikë dhe eksperiencë të gjerë në programim, web development, software, hardware, dizajn, 3D advertising, marketing dhe teknologji digjitale."
+            data-en="Technology professional with professional education in IT & Electrical Engineering and extensive experience in programming, web development, software, hardware, design, 3D advertising, marketing and digital technologies.">
 
             Profesionist i teknologjisë me shkollim
             profesional në IT & Elektroteknikë dhe
@@ -1139,23 +1519,31 @@ footer p + p {
 
         </p>
 
+
         <div class="hero-buttons">
+
 
             <a
                 href="#skills"
-                class="button">
+                class="button"
+                data-sq="SHIKO AFTËSITË"
+                data-en="VIEW SKILLS">
 
                 SHIKO AFTËSITË
 
             </a>
 
+
             <a
                 href="#contact"
-                class="button">
+                class="button"
+                data-sq="KONTAKT"
+                data-en="CONTACT">
 
                 KONTAKT
 
             </a>
+
 
         </div>
 
@@ -1165,14 +1553,16 @@ footer p + p {
 
 
 <!-- ========================================================
-     KUSH JAM UNE
+     ABOUT
 ========================================================= -->
 
 <section
     class="about-home"
     id="about">
 
+
     <div class="about-home-container">
+
 
         <div class="about-home-image">
 
@@ -1182,17 +1572,32 @@ footer p + p {
 
         </div>
 
+
         <div class="about-home-content">
 
-            <span class="small-title">
+
+            <span
+                class="small-title"
+                data-sq="01 / RRETH MEJE"
+                data-en="01 / ABOUT ME">
+
                 01 / RRETH MEJE
+
             </span>
 
-            <h2>
+
+            <h2
+                data-sq="Kush jam unë?"
+                data-en="Who am I?">
+
                 Kush jam unë?
+
             </h2>
 
-            <p>
+
+            <p
+                data-sq="Përshëndetje, unë jam Lisi Kumnova, një designer dhe kreativ i apasionuar pas dizajnit, teknologjisë dhe artit digjital."
+                data-en="Hello, I am Lisi Kumnova, a designer and creative professional passionate about design, technology and digital art.">
 
                 Përshëndetje, unë jam
                 <strong>Lisi Kumnova</strong>,
@@ -1201,7 +1606,10 @@ footer p + p {
 
             </p>
 
-            <p>
+
+            <p
+                data-sq="Merrem me Graphic Design, Logo Design, Branding, Web Design dhe 3D Design si dhe krijimin e reklamave kreative 3D."
+                data-en="I work with Graphic Design, Logo Design, Branding, Web Design and 3D Design, as well as creating creative 3D advertisements.">
 
                 Merrem me
                 <strong>
@@ -1212,7 +1620,10 @@ footer p + p {
 
             </p>
 
-            <p>
+
+            <p
+                data-sq="Më pëlqen të krijoj ide moderne, vizuale të veçanta dhe projekte që kombinojnë kreativitetin me teknologjinë."
+                data-en="I enjoy creating modern ideas, unique visuals and projects that combine creativity with technology.">
 
                 Më pëlqen të krijoj ide moderne,
                 vizuale të veçanta dhe projekte që
@@ -1220,13 +1631,17 @@ footer p + p {
 
             </p>
 
+
             <a
                 href="rreth-meje.html"
-                class="about-button">
+                class="about-button"
+                data-sq="MË SHUMË RRETH MEJE →"
+                data-en="MORE ABOUT ME →">
 
                 MË SHUMË RRETH MEJE →
 
             </a>
+
 
         </div>
 
@@ -1236,29 +1651,46 @@ footer p + p {
 
 
 <!-- ========================================================
-     AFTËSITË
+     SKILLS
 ========================================================= -->
 
 <section
     class="section"
     id="skills">
 
-    <div class="section-label">
+
+    <div
+        class="section-label"
+        data-sq="02 / AFTËSITË"
+        data-en="02 / SKILLS">
+
         02 / AFTËSITË
+
     </div>
 
-    <h2>
+
+    <h2
+        data-sq="Çfarë bëj."
+        data-en="What I do.">
+
         Çfarë bëj.
+
     </h2>
 
-    <p class="section-intro">
+
+    <p
+        class="section-intro"
+        data-sq="Njohuri dhe eksperiencë në teknologji, dizajn dhe krijimtari digjitale."
+        data-en="Knowledge and experience in technology, design and digital creativity.">
 
         Njohuri dhe eksperiencë në teknologji,
         dizajn dhe krijimtari digjitale.
 
     </p>
 
+
     <div class="skills">
+
 
         <div class="skill">
 
@@ -1266,13 +1698,21 @@ footer p + p {
                 01 / WEB
             </div>
 
-            <h3>
+            <h3
+                data-sq="Web Development"
+                data-en="Web Development">
+
                 Web Development
+
             </h3>
 
-            <p>
+            <p
+                data-sq="Krijim dhe zhvillim i website-ve moderne, responsive dhe funksionale."
+                data-en="Creation and development of modern, responsive and functional websites.">
+
                 Krijim dhe zhvillim i website-ve
                 moderne, responsive dhe funksionale.
+
             </p>
 
         </div>
@@ -1284,13 +1724,21 @@ footer p + p {
                 02 / DESIGN
             </div>
 
-            <h3>
+            <h3
+                data-sq="Graphic Design"
+                data-en="Graphic Design">
+
                 Graphic Design
+
             </h3>
 
-            <p>
+            <p
+                data-sq="Dizajn grafik, materiale kreative, postera dhe përmbajtje digjitale."
+                data-en="Graphic design, creative materials, posters and digital content.">
+
                 Dizajn grafik, materiale kreative,
                 postera dhe përmbajtje digjitale.
+
             </p>
 
         </div>
@@ -1302,13 +1750,21 @@ footer p + p {
                 03 / BRAND
             </div>
 
-            <h3>
+            <h3
+                data-sq="Logo & Branding"
+                data-en="Logo & Branding">
+
                 Logo & Branding
+
             </h3>
 
-            <p>
+            <p
+                data-sq="Krijim logo-sh dhe identitetesh vizuale për biznese dhe marka."
+                data-en="Creation of logos and visual identities for businesses and brands.">
+
                 Krijim logo-sh dhe identitetesh
                 vizuale për biznese dhe marka.
+
             </p>
 
         </div>
@@ -1320,13 +1776,21 @@ footer p + p {
                 04 / 3D
             </div>
 
-            <h3>
+            <h3
+                data-sq="3D Design"
+                data-en="3D Design">
+
                 3D Design
+
             </h3>
 
-            <p>
+            <p
+                data-sq="Modelim 3D, rendering dhe krijim të materialeve vizuale kreative."
+                data-en="3D modeling, rendering and creation of creative visual materials.">
+
                 Modelim 3D, rendering dhe krijim
                 të materialeve vizuale kreative.
+
             </p>
 
         </div>
@@ -1338,13 +1802,21 @@ footer p + p {
                 05 / ADS
             </div>
 
-            <h3>
+            <h3
+                data-sq="3D Advertising"
+                data-en="3D Advertising">
+
                 3D Advertising
+
             </h3>
 
-            <p>
+            <p
+                data-sq="Krijim dhe montim i reklamave 3D dhe përmbajtjeve promocionale."
+                data-en="Creation and editing of 3D advertisements and promotional content.">
+
                 Krijim dhe montim i reklamave
                 3D dhe përmbajtjeve promocionale.
+
             </p>
 
         </div>
@@ -1356,13 +1828,21 @@ footer p + p {
                 06 / DIGITAL
             </div>
 
-            <h3>
+            <h3
+                data-sq="Digital Marketing"
+                data-en="Digital Marketing">
+
                 Digital Marketing
+
             </h3>
 
-            <p>
+            <p
+                data-sq="Marketing digjital, reklama online dhe prezencë profesionale online."
+                data-en="Digital marketing, online advertising and professional online presence.">
+
                 Marketing digjital, reklama online
                 dhe prezencë profesionale online.
+
             </p>
 
         </div>
@@ -1374,13 +1854,21 @@ footer p + p {
                 07 / CODE
             </div>
 
-            <h3>
+            <h3
+                data-sq="Programming"
+                data-en="Programming">
+
                 Programming
+
             </h3>
 
-            <p>
+            <p
+                data-sq="Programim dhe zhvillim software dhe zgjidhje teknologjike."
+                data-en="Programming, software development and technological solutions.">
+
                 Programim dhe zhvillim software
                 dhe zgjidhje teknologjike.
+
             </p>
 
         </div>
@@ -1392,13 +1880,21 @@ footer p + p {
                 08 / HARDWARE
             </div>
 
-            <h3>
+            <h3
+                data-sq="PC & Hardware"
+                data-en="PC & Hardware">
+
                 PC & Hardware
+
             </h3>
 
-            <p>
+            <p
+                data-sq="Montim, konfigurim dhe optimizim i kompjuterëve dhe sistemeve."
+                data-en="Assembly, configuration and optimization of computers and systems.">
+
                 Montim, konfigurim dhe optimizim
                 i kompjuterëve dhe sistemeve.
+
             </p>
 
         </div>
@@ -1410,16 +1906,25 @@ footer p + p {
                 09 / SOCIAL
             </div>
 
-            <h3>
+            <h3
+                data-sq="Social Media"
+                data-en="Social Media">
+
                 Social Media
+
             </h3>
 
-            <p>
+            <p
+                data-sq="Krijim përmbajtjesh dhe menaxhim i prezencës në rrjetet sociale."
+                data-en="Content creation and management of social media presence.">
+
                 Krijim përmbajtjesh dhe menaxhim
                 i prezencës në rrjetet sociale.
+
             </p>
 
         </div>
+
 
     </div>
 
@@ -1427,22 +1932,37 @@ footer p + p {
 
 
 <!-- ========================================================
-     PUNA
+     PROJECTS
 ========================================================= -->
 
 <section
     class="section"
     id="projects">
 
-    <div class="section-label">
+
+    <div
+        class="section-label"
+        data-sq="03 / PUNA IME"
+        data-en="03 / MY WORK">
+
         03 / PUNA IME
+
     </div>
 
-    <h2>
+
+    <h2
+        data-sq="Projektet."
+        data-en="Projects.">
+
         Projektet.
+
     </h2>
 
-    <p class="section-intro">
+
+    <p
+        class="section-intro"
+        data-sq="Një përmbledhje e disa prej fushave dhe projekteve ku kam punuar."
+        data-en="An overview of some of the fields and projects I have worked on.">
 
         Një përmbledhje e disa prej fushave
         dhe projekteve ku kam punuar.
@@ -1450,27 +1970,112 @@ footer p + p {
     </p>
 
 
-    <!-- PROJEKTET NGA SUPABASE -->
+    <div class="projects">
 
-    <div
-        class="projects"
-        id="projects-container">
 
         <div class="project">
 
             <div class="project-number">
-                LOADING
+                PROJECT 01
             </div>
 
-            <h3>
-                Duke ngarkuar projektet...
+            <h3
+                data-sq="Website Development"
+                data-en="Website Development">
+
+                Website Development
+
             </h3>
 
-            <p>
-                Ju lutem prisni.
+            <p
+                data-sq="Krijim dhe zhvillim i website-ve moderne për projekte dhe biznese."
+                data-en="Creation and development of modern websites for projects and businesses.">
+
+                Krijim dhe zhvillim i website-ve
+                moderne për projekte dhe biznese.
+
             </p>
 
         </div>
+
+
+        <div class="project">
+
+            <div class="project-number">
+                PROJECT 02
+            </div>
+
+            <h3
+                data-sq="Logo & Branding"
+                data-en="Logo & Branding">
+
+                Logo & Branding
+
+            </h3>
+
+            <p
+                data-sq="Identitete vizuale, logo design dhe materiale branding."
+                data-en="Visual identities, logo design and branding materials.">
+
+                Identitete vizuale, logo design
+                dhe materiale branding.
+
+            </p>
+
+        </div>
+
+
+        <div class="project">
+
+            <div class="project-number">
+                PROJECT 03
+            </div>
+
+            <h3
+                data-sq="3D Advertising"
+                data-en="3D Advertising">
+
+                3D Advertising
+
+            </h3>
+
+            <p
+                data-sq="Reklama 3D dhe përmbajtje kreative për produkte dhe marka."
+                data-en="3D advertisements and creative content for products and brands.">
+
+                Reklama 3D dhe përmbajtje kreative
+                për produkte dhe marka.
+
+            </p>
+
+        </div>
+
+
+        <div class="project">
+
+            <div class="project-number">
+                PROJECT 04
+            </div>
+
+            <h3
+                data-sq="Digital Projects"
+                data-en="Digital Projects">
+
+                Digital Projects
+
+            </h3>
+
+            <p
+                data-sq="Projekte digjitale që kombinojnë teknologjinë, dizajnin dhe kreativitetin."
+                data-en="Digital projects that combine technology, design and creativity.">
+
+                Projekte digjitale që kombinojnë
+                teknologjinë, dizajnin dhe kreativitetin.
+
+            </p>
+
+        </div>
+
 
     </div>
 
@@ -1481,13 +2086,17 @@ footer p + p {
         text-align:center;
         ">
 
+
         <a
             href="puna.html"
-            class="button">
+            class="button"
+            data-sq="SHIKO TË GJITHA PUNËT →"
+            data-en="VIEW ALL WORK →">
 
             SHIKO TË GJITHA PUNËT →
 
         </a>
+
 
     </div>
 
@@ -1495,27 +2104,44 @@ footer p + p {
 
 
 <!-- ========================================================
-     GALERIA
+     GALLERY
 ========================================================= -->
 
 <section class="section">
 
-    <div class="section-label">
+
+    <div
+        class="section-label"
+        data-sq="04 / GALERIA"
+        data-en="04 / GALLERY">
+
         04 / GALERIA
+
     </div>
 
-    <h2>
+
+    <h2
+        data-sq="Projektet vizuale."
+        data-en="Visual projects.">
+
         Projektet vizuale.
+
     </h2>
 
-    <p class="section-intro">
+
+    <p
+        class="section-intro"
+        data-sq="Këtu mund të vendosen fotografitë e projekteve, dizajneve dhe reklamave."
+        data-en="This is where photos of projects, designs and advertisements can be displayed.">
 
         Këtu mund të vendosen fotografitë
         e projekteve, dizajneve dhe reklamave.
 
     </p>
 
+
     <div class="gallery">
+
 
         <div>
 
@@ -1523,10 +2149,18 @@ footer p + p {
                 GALLERY
             </strong>
 
-            Fotot dhe projektet do të
-            shtohen këtu.
+
+            <span
+                data-sq="Fotot dhe projektet do të shtohen këtu."
+                data-en="Photos and projects will be added here.">
+
+                Fotot dhe projektet do të
+                shtohen këtu.
+
+            </span>
 
         </div>
+
 
     </div>
 
@@ -1541,15 +2175,30 @@ footer p + p {
     class="section contact"
     id="contact">
 
-    <div class="section-label">
+
+    <div
+        class="section-label"
+        data-sq="05 / KONTAKT"
+        data-en="05 / CONTACT">
+
         05 / KONTAKT
+
     </div>
 
-    <h2>
-        Let's connect.
+
+    <h2
+        data-sq="Le të lidhemi."
+        data-en="Let's connect.">
+
+        Le të lidhemi.
+
     </h2>
 
-    <p class="section-intro">
+
+    <p
+        class="section-intro"
+        data-sq="Për projekte, bashkëpunime, website, dizajn, marketing ose zgjidhje digjitale."
+        data-en="For projects, collaborations, websites, design, marketing or digital solutions.">
 
         Për projekte, bashkëpunime,
         website, dizajn, marketing ose
@@ -1557,15 +2206,20 @@ footer p + p {
 
     </p>
 
+
     <div class="contact-links">
+
 
         <a
             href="kontakti.html"
-            class="contact-link">
+            class="contact-link"
+            data-sq="KONTAKT"
+            data-en="CONTACT">
 
             KONTAKT
 
         </a>
+
 
         <a
             href="https://www.instagram.com/lisi.kumnova"
@@ -1576,6 +2230,7 @@ footer p + p {
 
         </a>
 
+
         <a
             href="https://linktr.ee/lisik"
             target="_blank"
@@ -1584,6 +2239,7 @@ footer p + p {
             LINKTREE
 
         </a>
+
 
     </div>
 
@@ -1596,16 +2252,24 @@ footer p + p {
 
 <footer>
 
-    <p>
+
+    <p
+        data-sq="© Të gjitha të drejtat janë të rezervuara 2026 · Design by: LISI KUMNOVA"
+        data-en="© All rights reserved 2026 · Design by: LISI KUMNOVA">
+
         © Të gjitha të drejtat janë të rezervuara 2026
         · Design by: LISI KUMNOVA
+
     </p>
+
 
     <p>
         TECHNOLOGY · DESIGN · DIGITAL
     </p>
 
+
 </footer>
+
 
 
 <!-- ========================================================
@@ -1637,6 +2301,7 @@ window.addEventListener(
 
     }
 );
+
 
 
 /* =========================================================
@@ -1689,188 +2354,122 @@ for (
 }
 
 
-/* =========================================================
-   SUPABASE
-========================================================= */
-
-const SUPABASE_URL =
-    "https://mbzbxfjxfckovguzftdk.supabase.co";
-
-const SUPABASE_KEY =
-    "sb_publishable_2PgPd268AABb6DMFXVno_A_hr5tz83V";
-
 
 /* =========================================================
-   LOAD PROJECTS
+   LANGUAGE SYSTEM
 ========================================================= */
 
-async function loadProjects() {
+function setLanguage(language) {
 
-    const container =
-        document.getElementById(
-            "projects-container"
+
+    /* ---------------------------------------------
+       CHANGE HTML LANGUAGE
+    --------------------------------------------- */
+
+    document.documentElement.lang =
+        language;
+
+
+    /* ---------------------------------------------
+       CHANGE ALL TRANSLATED ELEMENTS
+    --------------------------------------------- */
+
+    const elements =
+        document.querySelectorAll(
+            "[data-sq]"
         );
 
 
-    if (!container) {
-        return;
+    elements.forEach(
+        function(element) {
+
+            const text =
+                element.getAttribute(
+                    "data-" + language
+                );
+
+
+            if (text) {
+
+                element.textContent =
+                    text;
+
+            }
+
+        }
+    );
+
+
+    /* ---------------------------------------------
+       ACTIVE BUTTON
+    --------------------------------------------- */
+
+    document
+        .getElementById("sqBtn")
+        .classList
+        .remove("active");
+
+
+    document
+        .getElementById("enBtn")
+        .classList
+        .remove("active");
+
+
+    if (language === "sq") {
+
+        document
+            .getElementById("sqBtn")
+            .classList
+            .add("active");
+
+    } else {
+
+        document
+            .getElementById("enBtn")
+            .classList
+            .add("active");
+
     }
 
 
-    try {
+    /* ---------------------------------------------
+       SAVE LANGUAGE
+    --------------------------------------------- */
 
-        const response =
-            await fetch(
-                SUPABASE_URL +
-                "/rest/v1/projects?select=id,title,description,image_url,created_at&order=created_at.desc",
-
-                {
-                    headers: {
-                        "apikey":
-                            SUPABASE_KEY
-                    }
-                }
-            );
-
-
-        const projects =
-            await response.json();
-
-
-        if (!response.ok) {
-
-            console.error(
-                "Supabase error:",
-                projects
-            );
-
-            container.innerHTML = `
-
-                <div class="project">
-
-                    <div class="project-number">
-                        ERROR
-                    </div>
-
-                    <h3>
-                        Nuk u ngarkuan projektet
-                    </h3>
-
-                    <p>
-                        Kontrollo lidhjen me Supabase.
-                    </p>
-
-                </div>
-
-            `;
-
-            return;
-        }
-
-
-        if (
-            !Array.isArray(projects) ||
-            projects.length === 0
-        ) {
-
-            container.innerHTML = `
-
-                <div class="project">
-
-                    <div class="project-number">
-                        PROJECTS
-                    </div>
-
-                    <h3>
-                        Ende nuk ka projekte
-                    </h3>
-
-                    <p>
-                        Projektet do të shfaqen këtu.
-                    </p>
-
-                </div>
-
-            `;
-
-            return;
-        }
-
-
-        container.innerHTML =
-            projects
-            .map(
-                (project, index) => `
-
-                    <div class="project">
-
-                        <div class="project-number">
-
-                            PROJECT
-                            ${String(index + 1).padStart(2, "0")}
-
-                        </div>
-
-
-                        <h3>
-
-                            ${escapeHtml(
-                                project.title
-                            )}
-
-                        </h3>
-
-
-                        <p>
-
-                            ${escapeHtml(
-                                project.description
-                            )}
-
-                        </p>
-
-                    </div>
-
-                `
-            )
-            .join("");
-
-
-    } catch (error) {
-
-        console.error(
-            "Gabim:",
-            error
-        );
-
-    }
+    localStorage.setItem(
+        "siteLanguage",
+        language
+    );
 
 }
 
 
+
 /* =========================================================
-   SECURITY
+   LOAD SAVED LANGUAGE
 ========================================================= */
 
-function escapeHtml(text) {
+const savedLanguage =
+    localStorage.getItem(
+        "siteLanguage"
+    );
 
-    const div =
-        document.createElement(
-            "div"
-        );
 
-    div.textContent =
-        text || "";
+if (
+    savedLanguage === "en" ||
+    savedLanguage === "sq"
+) {
 
-    return div.innerHTML;
+    setLanguage(
+        savedLanguage
+    );
+
+} else {
+
+    setLanguage("sq");
+
 }
-
-
-/* =========================================================
-   START
-========================================================= */
-
-loadProjects();
 
 </script>
 
