@@ -1,264 +1,1427 @@
-```html
 <!DOCTYPE html>
+
 <html lang="sq">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Rreth Meje | Lisi Kumnova</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<title>Rreth Meje | Lisi Kumnova</title>
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #f7f3ef;
-            color: #333;
-            line-height: 1.7;
-        }
+<style>
 
-        header {
-            background: #2f2a3a;
-            padding: 20px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+/* =========================================================
+   RESET
+========================================================= */
 
-        .logo {
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 25px;
-            font-size: 16px;
-            transition: 0.3s;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        nav a:hover {
-            color: #d8a7b1;
-        }
+body {
+    background: #050505;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
 
-        .hero {
-            min-height: 70vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 70px 8%;
-        }
 
-        .about-container {
-            max-width: 1100px;
-            display: grid;
-            grid-template-columns: 1fr 1.4fr;
-            gap: 60px;
-            align-items: center;
-        }
+/* =========================================================
+   BACKGROUND
+========================================================= */
 
-        .photo {
-            width: 100%;
-            height: 450px;
-            border-radius: 25px;
-            background: linear-gradient(135deg, #d8a7b1, #8e7894);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 20px;
-            text-align: center;
-        }
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
 
-        .content h1 {
-            font-size: 48px;
-            color: #2f2a3a;
-            margin-bottom: 20px;
-        }
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(0,150,255,.12),
+            transparent 30%
+        ),
 
-        .content h2 {
-            color: #8e5367;
-            font-size: 23px;
-            margin-bottom: 20px;
-        }
+        radial-gradient(
+            circle at 85% 70%,
+            rgba(120,0,255,.12),
+            transparent 30%
+        ),
 
-        .content p {
-            margin-bottom: 18px;
-            font-size: 17px;
-        }
+        #050505;
+}
 
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 25px 0;
-        }
+.grid {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
 
-        .skill {
-            background: #2f2a3a;
-            color: white;
-            padding: 9px 16px;
-            border-radius: 30px;
-            font-size: 14px;
-        }
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        ),
 
-        .quote {
-            margin-top: 30px;
-            padding: 20px 25px;
-            border-left: 4px solid #b77b8c;
-            background: white;
-            border-radius: 8px;
-            font-style: italic;
-            color: #555;
-        }
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        );
 
-        footer {
-            background: #2f2a3a;
-            color: white;
-            text-align: center;
-            padding: 25px;
-            margin-top: 40px;
-        }
+    background-size: 60px 60px;
 
-        @media (max-width: 800px) {
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent
+        );
+}
 
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
 
-            nav a {
-                margin: 0 8px;
-                font-size: 14px;
-            }
+/* =========================================================
+   NAVIGATION
+========================================================= */
 
-            .about-container {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
 
-            .photo {
-                height: 350px;
-            }
+    height: 80px;
 
-            .content h1 {
-                font-size: 38px;
-            }
-        }
-    </style>
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 7%;
+
+    z-index: 100;
+
+    background:
+        linear-gradient(
+            rgba(5,5,5,.96),
+            transparent
+        );
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    color: #5cc9ff;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 35px;
+}
+
+nav a {
+    color: #aaa;
+    text-decoration: none;
+
+    font-size: 10px;
+    letter-spacing: 2px;
+
+    transition: .3s;
+}
+
+nav a:hover,
+nav a.active {
+    color: #55c8ff;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.about-hero {
+    min-height: 75vh;
+
+    display: flex;
+    align-items: center;
+
+    padding:
+        150px 10% 100px;
+
+    position: relative;
+}
+
+.about-hero-content {
+    max-width: 1000px;
+}
+
+.tag {
+    font-size: 10px;
+    letter-spacing: 5px;
+
+    color: #4ec5ff;
+
+    margin-bottom: 25px;
+}
+
+.about-hero h1 {
+    font-size:
+        clamp(4rem, 10vw, 9rem);
+
+    line-height: .85;
+
+    letter-spacing: -5px;
+
+    font-weight: 700;
+}
+
+.about-hero h1 span {
+    color: transparent;
+
+    -webkit-text-stroke:
+        1px #4dc4ff;
+}
+
+.about-hero p {
+    margin-top: 40px;
+
+    max-width: 750px;
+
+    color: #888;
+
+    font-size: 16px;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   MAIN ABOUT
+========================================================= */
+
+.about-section {
+    padding:
+        120px 10%;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.06);
+}
+
+.about-container {
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        .8fr 1.2fr;
+
+    gap: 80px;
+
+    align-items: start;
+}
+
+
+/* =========================================================
+   PHOTO
+========================================================= */
+
+.photo-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+}
+
+.photo-wrapper::before {
+    content: "";
+
+    position: absolute;
+
+    top: 18px;
+    left: 18px;
+
+    width: 100%;
+    height: 100%;
+
+    border:
+        1px solid
+        rgba(70,190,255,.4);
+
+    z-index: 0;
+}
+
+.photo-wrapper img {
+    position: relative;
+
+    z-index: 1;
+
+    display: block;
+
+    width: 100%;
+
+    height: 560px;
+
+    object-fit: cover;
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    box-shadow:
+        0 25px 80px
+        rgba(0,0,0,.65);
+}
+
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+.section-label {
+    color: #4cc5ff;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+}
+
+.about-content h2 {
+    margin-top: 20px;
+
+    font-size:
+        clamp(2.5rem, 6vw, 5rem);
+
+    line-height: 1;
+
+    margin-bottom: 35px;
+}
+
+.about-content p {
+    color: #888;
+
+    font-size: 15px;
+
+    line-height: 1.9;
+
+    margin-bottom: 22px;
+}
+
+.about-content strong {
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   INFO BOXES
+========================================================= */
+
+.info-grid {
+    margin-top: 55px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap: 15px;
+}
+
+.info-box {
+    padding: 25px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    background:
+        rgba(255,255,255,.025);
+
+    transition: .4s;
+}
+
+.info-box:hover {
+    border-color:
+        rgba(70,190,255,.4);
+
+    transform:
+        translateY(-5px);
+}
+
+.info-number {
+    color: #4cc5ff;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+}
+
+.info-box h3 {
+    margin-top: 25px;
+
+    font-size: 20px;
+}
+
+.info-box p {
+    margin-top: 10px;
+
+    margin-bottom: 0;
+
+    font-size: 13px;
+
+    color: #777;
+}
+
+
+/* =========================================================
+   EXPERIENCE
+========================================================= */
+
+.experience {
+    padding:
+        120px 10%;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.06);
+}
+
+.experience-container {
+    max-width: 1200px;
+
+    margin: auto;
+}
+
+.experience-title {
+    max-width: 800px;
+}
+
+.experience-title h2 {
+    margin-top: 20px;
+
+    font-size:
+        clamp(2.5rem, 6vw, 5rem);
+
+    line-height: 1;
+}
+
+.experience-title p {
+    margin-top: 25px;
+
+    color: #888;
+
+    line-height: 1.9;
+}
+
+.timeline {
+    margin-top: 65px;
+
+    border-left:
+        1px solid
+        rgba(70,190,255,.3);
+
+    padding-left: 40px;
+}
+
+.timeline-item {
+    position: relative;
+
+    padding-bottom: 55px;
+}
+
+.timeline-item::before {
+    content: "";
+
+    position: absolute;
+
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: #4dc6ff;
+
+    left: -45px;
+    top: 5px;
+
+    box-shadow:
+        0 0 20px
+        rgba(77,198,255,.7);
+}
+
+.timeline-number {
+    color: #4cc5ff;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+}
+
+.timeline-item h3 {
+    margin-top: 12px;
+
+    font-size: 27px;
+}
+
+.timeline-item p {
+    margin-top: 12px;
+
+    color: #777;
+
+    max-width: 800px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.skills-section {
+    padding:
+        120px 10%;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.06);
+}
+
+.skills-container {
+    max-width: 1200px;
+
+    margin: auto;
+}
+
+.skills-title h2 {
+    margin-top: 20px;
+
+    font-size:
+        clamp(2.5rem, 6vw, 5rem);
+}
+
+.skills-title p {
+    margin-top: 25px;
+
+    color: #888;
+
+    max-width: 750px;
+
+    line-height: 1.9;
+}
+
+.skills-grid {
+    margin-top: 60px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 18px;
+}
+
+.skill-card {
+    min-height: 190px;
+
+    padding: 30px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    background:
+        rgba(255,255,255,.025);
+
+    transition: .5s;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.skill-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 0;
+    height: 2px;
+
+    background: #42c4ff;
+
+    transition: .5s;
+}
+
+.skill-card:hover {
+    transform:
+        translateY(-8px);
+
+    border-color:
+        rgba(60,190,255,.4);
+}
+
+.skill-card:hover::before {
+    width: 100%;
+}
+
+.skill-card span {
+    color: #4cc5ff;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+}
+
+.skill-card h3 {
+    margin-top: 40px;
+
+    font-size: 22px;
+}
+
+.skill-card p {
+    margin-top: 12px;
+
+    color: #777;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   QUOTE
+========================================================= */
+
+.quote-section {
+    padding:
+        130px 10%;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.06);
+
+    text-align: center;
+}
+
+.quote {
+    max-width: 900px;
+
+    margin: auto;
+
+    font-size:
+        clamp(1.8rem, 4vw, 3.5rem);
+
+    line-height: 1.25;
+
+    color: #ddd;
+}
+
+.quote span {
+    color: #4dc6ff;
+}
+
+.quote-author {
+    margin-top: 30px;
+
+    color: #555;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-area {
+    padding:
+        100px 10%;
+
+    text-align: center;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.06);
+}
+
+.contact-area p {
+    color: #777;
+
+    margin-top: 20px;
+
+    line-height: 1.7;
+}
+
+.button {
+    display: inline-block;
+
+    margin-top: 35px;
+
+    padding:
+        15px 28px;
+
+    border:
+        1px solid #236886;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    transition: .4s;
+}
+
+.button:hover {
+    background: #38bdf8;
+
+    color: #000;
+
+    box-shadow:
+        0 0 30px
+        rgba(56,189,248,.35);
+
+    transform:
+        translateY(-3px);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    padding:
+        40px 10%;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.07);
+
+    color: #555;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    text-align: center;
+}
+
+footer p + p {
+    margin-top: 12px;
+
+    color: #4cc5ff;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:800px) {
+
+    nav ul {
+        display: none;
+    }
+
+    .about-hero {
+        padding:
+            130px 7% 80px;
+    }
+
+    .about-section,
+    .experience,
+    .skills-section,
+    .quote-section,
+    .contact-area {
+        padding:
+            90px 7%;
+    }
+
+    .about-container {
+        grid-template-columns: 1fr;
+
+        gap: 60px;
+    }
+
+    .photo-wrapper {
+        max-width: 450px;
+
+        margin: auto;
+    }
+
+    .photo-wrapper img {
+        height: 450px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-hero h1 {
+        letter-spacing: -3px;
+    }
+
+}
+
+</style>
+
 </head>
 
 <body>
 
-<header>
+<div class="grid"></div>
 
-    <div class="logo">Lisi Kumnova</div>
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
 
-    <nav>
-        <a href="index.html">Kryefaqja</a>
-        <a href="rreth-meje.html">Rreth Meje</a>
-        <a href="aftesite.html">Aftësitë</a>
-        <a href="puna.html">Puna Ime</a>
-        <a href="kontakti.html">Kontakti</a>
-    </nav>
+<nav>
 
-</header>
+```
+<div class="logo">
+    LK
+</div>
+
+<ul>
+
+    <li>
+        <a href="index.html">
+            KRYE
+        </a>
+    </li>
+
+    <li>
+        <a
+            href="rreth-meje.html"
+            class="active">
+
+            RRETH MEJE
+
+        </a>
+    </li>
+
+    <li>
+        <a href="index.html#skills">
+            AFTËSITË
+        </a>
+    </li>
+
+    <li>
+        <a href="puna.html">
+            PUNA
+        </a>
+    </li>
+
+    <li>
+        <a href="kontakti.html">
+            KONTAKT
+        </a>
+    </li>
+
+</ul>
+```
+
+</nav>
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="about-hero">
+
+```
+<div class="about-hero-content">
+
+    <div class="tag">
+        01 / RRETH MEJE
+    </div>
+
+    <h1>
+        LISI<br>
+        <span>KUMNOVA</span>
+    </h1>
+
+    <p>
+        Teknologji, dizajn, kreativitet dhe
+        eksperiencë digjitale të bashkuara
+        në një vizion.
+    </p>
+
+</div>
+```
+
+</section>
+
+<!-- =========================================================
+     ABOUT + PHOTO
+========================================================= -->
+
+<section class="about-section">
+
+```
+<div class="about-container">
 
 
-<section class="hero">
+    <div class="photo-wrapper">
 
-    <div class="about-container">
+        <img
+            src="lisi.jpg"
+            alt="Lisi Kumnova">
 
-        <div class="photo">
-            FOTOJA E LISI KUMNOVËS
+    </div>
+
+
+    <div class="about-content">
+
+        <div class="section-label">
+            KUSH JAM UNË
         </div>
 
-
-        <div class="content">
-
-            <h1>Rreth Meje</h1>
-
-            <h2>
-                Designer • Logo Designer • Branding • Web Designer •
-                3D Artist
-            </h2>
-
-            <p>
-                Përshëndetje, unë jam <strong>Lisi Kumnova</strong>.
-                Jam një kreativ dhe designer i apasionuar pas teknologjisë,
-                dizajnit dhe artit digjital.
-            </p>
-
-            <p>
-                Merrem me krijimin e identiteteve vizuale, logo design,
-                branding, web design dhe dizajn grafik. Më pëlqen të
-                kombinoj estetikën, kreativitetin dhe funksionalitetin
-                për të krijuar projekte moderne dhe profesionale.
-            </p>
-
-            <p>
-                Gjithashtu kam eksperiencë në krijimin e projekteve 3D,
-                reklama 3D, materiale promocionale dhe përmbajtje vizuale
-                për platforma të ndryshme digjitale.
-            </p>
-
-            <p>
-                Në web design fokusohem në krijimin e faqeve moderne,
-                responsive dhe të lehta për t'u përdorur, duke i dhënë
-                rëndësi të veçantë pamjes, strukturës dhe përvojës së
-                përdoruesit.
-            </p>
-
-            <p>
-                Qëllimi im është të krijoj dizajne që nuk janë vetëm të
-                bukura vizualisht, por që komunikojnë një ide, ndërtojnë
-                një identitet dhe krijojnë një eksperiencë të veçantë
-                për klientin dhe audiencën.
-            </p>
+        <h2>
+            Krijoj ide që
+            bëhen realitet.
+        </h2>
 
 
-            <div class="skills">
+        <p>
 
-                <span class="skill">Graphic Design</span>
-                <span class="skill">Logo Design</span>
-                <span class="skill">Branding</span>
-                <span class="skill">Web Design</span>
-                <span class="skill">UI / UX</span>
-                <span class="skill">3D Design</span>
-                <span class="skill">3D Advertising</span>
-                <span class="skill">Visual Design</span>
-                <span class="skill">Creative Design</span>
-                <span class="skill">Digital Art</span>
+            Përshëndetje, unë jam
+            <strong>Lisi Kumnova</strong>,
+            designer dhe kreativ i apasionuar
+            pas teknologjisë, dizajnit dhe
+            artit digjital.
+
+        </p>
+
+
+        <p>
+
+            Kam eksperiencë në fusha të ndryshme
+            të teknologjisë dhe krijimtarisë,
+            duke përfshirë
+            <strong>
+                Graphic Design, Logo Design,
+                Branding, Web Design dhe 3D Design.
+            </strong>
+
+        </p>
+
+
+        <p>
+
+            Gjithashtu merrem me krijimin dhe
+            montimin e
+            <strong>
+                reklamave 3D,
+                përmbajtjeve digjitale,
+                marketingut online
+            </strong>
+            dhe projekteve kreative.
+
+        </p>
+
+
+        <p>
+
+            Më pëlqen të eksperimentoj me ide
+            të reja dhe të kombinoj estetikën
+            me teknologjinë për të krijuar
+            punë moderne dhe funksionale.
+
+        </p>
+
+
+        <div class="info-grid">
+
+
+            <div class="info-box">
+
+                <div class="info-number">
+                    01 / FOKUS
+                </div>
+
+                <h3>
+                    Design
+                </h3>
+
+                <p>
+                    Identitet vizual,
+                    grafikë dhe përmbajtje kreative.
+                </p>
 
             </div>
 
 
-            <div class="quote">
-                “Dizajni nuk është vetëm ajo që duket bukur —
-                është mënyra se si një ide bëhet e paharrueshme.”
+            <div class="info-box">
+
+                <div class="info-number">
+                    02 / FOKUS
+                </div>
+
+                <h3>
+                    Technology
+                </h3>
+
+                <p>
+                    Web, software, hardware
+                    dhe zgjidhje digjitale.
+                </p>
+
             </div>
+
+
+            <div class="info-box">
+
+                <div class="info-number">
+                    03 / FOKUS
+                </div>
+
+                <h3>
+                    3D
+                </h3>
+
+                <p>
+                    Modelim, rendering
+                    dhe reklama 3D.
+                </p>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <div class="info-number">
+                    04 / FOKUS
+                </div>
+
+                <h3>
+                    Digital
+                </h3>
+
+                <p>
+                    Marketing, web dhe
+                    prezencë profesionale online.
+                </p>
+
+            </div>
+
 
         </div>
 
     </div>
 
+</div>
+```
+
 </section>
 
+<!-- =========================================================
+     EXPERIENCE
+========================================================= -->
+
+<section class="experience">
+
+```
+<div class="experience-container">
+
+
+    <div class="experience-title">
+
+        <div class="section-label">
+            EKSPERIENCA
+        </div>
+
+        <h2>
+            Një rrugëtim
+            në teknologji.
+        </h2>
+
+        <p>
+            Eksperienca ime është ndërtuar përmes
+            kombinimit të teknologjisë, dizajnit,
+            kreativitetit dhe projekteve praktike.
+        </p>
+
+    </div>
+
+
+    <div class="timeline">
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-number">
+                01 / TECHNOLOGY
+            </div>
+
+            <h3>
+                IT & Elektroteknikë
+            </h3>
+
+            <p>
+                Shkollim profesional dhe njohuri
+                teknike në teknologji,
+                kompjuterë, sisteme dhe elektronikë.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-number">
+                02 / DIGITAL
+            </div>
+
+            <h3>
+                Web & Software
+            </h3>
+
+            <p>
+                Zhvillim website-sh dhe projekte
+                digjitale duke kombinuar
+                funksionalitetin me dizajnin modern.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-number">
+                03 / DESIGN
+            </div>
+
+            <h3>
+                Graphic & 3D Design
+            </h3>
+
+            <p>
+                Krijim grafikash, identitetesh,
+                logo-sh, modele 3D dhe materiale
+                vizuale për projekte të ndryshme.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-number">
+                04 / CREATIVE
+            </div>
+
+            <h3>
+                Advertising & Marketing
+            </h3>
+
+            <p>
+                Krijim reklamash, përmbajtjesh
+                kreative dhe prezence digjitale
+                për marka dhe biznese.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- =========================================================
+     SKILLS
+========================================================= -->
+
+<section class="skills-section">
+
+```
+<div class="skills-container">
+
+
+    <div class="skills-title">
+
+        <div class="section-label">
+            AFTËSITË
+        </div>
+
+        <h2>
+            Çfarë di të bëj.
+        </h2>
+
+        <p>
+            Një kombinim i aftësive teknike
+            dhe kreative që më lejon të punoj
+            në projekte nga ideja deri te rezultati final.
+        </p>
+
+    </div>
+
+
+    <div class="skills-grid">
+
+
+        <div class="skill-card">
+
+            <span>
+                01 / WEB
+            </span>
+
+            <h3>
+                Web Development
+            </h3>
+
+            <p>
+                Website moderne,
+                responsive dhe funksionale.
+            </p>
+
+        </div>
+
+
+        <div class="skill-card">
+
+            <span>
+                02 / DESIGN
+            </span>
+
+            <h3>
+                Graphic Design
+            </h3>
+
+            <p>
+                Dizajn grafik,
+                postera dhe materiale kreative.
+            </p>
+
+        </div>
+
+
+        <div class="skill-card">
+
+            <span>
+                03 / BRAND
+            </span>
+
+            <h3>
+                Logo & Branding
+            </h3>
+
+            <p>
+                Identitete vizuale
+                dhe logo profesionale.
+            </p>
+
+        </div>
+
+
+        <div class="skill-card">
+
+            <span>
+                04 / 3D
+            </span>
+
+            <h3>
+                3D Design
+            </h3>
+
+            <p>
+                Modelim 3D, rendering
+                dhe materiale vizuale.
+            </p>
+
+        </div>
+
+
+        <div class="skill-card">
+
+            <span>
+                05 / ADS
+            </span>
+
+            <h3>
+                3D Advertising
+            </h3>
+
+            <p>
+                Reklama kreative 3D
+                dhe përmbajtje promocionale.
+            </p>
+
+        </div>
+
+
+        <div class="skill-card">
+
+            <span>
+                06 / DIGITAL
+            </span>
+
+            <h3>
+                Digital Marketing
+            </h3>
+
+            <p>
+                Marketing online,
+                reklama dhe prezencë digjitale.
+            </p>
+
+        </div>
+
+
+        <div class="skill-card">
+
+            <span>
+                07 / CODE
+            </span>
+
+            <h3>
+                Programming
+            </h3>
+
+            <p>
+                Programim dhe zhvillim
+                i zgjidhjeve software.
+            </p>
+
+        </div>
+
+
+        <div class="skill-card">
+
+            <span>
+                08 / HARDWARE
+            </span>
+
+            <h3>
+                PC & Hardware
+            </h3>
+
+            <p>
+                Montim, konfigurim
+                dhe optimizim sistemesh.
+            </p>
+
+        </div>
+
+
+        <div class="skill-card">
+
+            <span>
+                09 / SOCIAL
+            </span>
+
+            <h3>
+                Social Media
+            </h3>
+
+            <p>
+                Përmbajtje kreative dhe
+                prezencë profesionale online.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- =========================================================
+     QUOTE
+========================================================= -->
+
+<section class="quote-section">
+
+```
+<div class="quote">
+
+    “Kreativiteti fillon me një ide,
+    <span>teknologjia e kthen në realitet.</span>”
+
+</div>
+
+<div class="quote-author">
+    LISI KUMNOVA
+</div>
+```
+
+</section>
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section class="contact-area">
+
+```
+<div class="section-label">
+    LE TË PUNOJME SË BASHKU
+</div>
+
+<p>
+    Ke një projekt, ide ose bashkëpunim?
+    Më kontakto dhe ta kthejmë idenë në realitet.
+</p>
+
+<a
+    href="kontakti.html"
+    class="button">
+
+    KONTAKT →
+
+</a>
+```
+
+</section>
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
 
 <footer>
 
-    <p>
-        © 2026 Lisi Kumnova — Të gjitha të drejtat e rezervuara.
-    </p>
+```
+<p>
+    © Të gjitha të drejtat janë të rezervuara 2026
+    · Design by: LISI KUMNOVA
+</p>
+
+<p>
+    TECHNOLOGY · DESIGN · DIGITAL
+</p>
+```
 
 </footer>
 
 </body>
 </html>
-```
