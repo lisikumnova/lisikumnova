@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Website Builder</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#090d12;color:#fff}
+header{padding:22px 6%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #222}
+.logo{font-size:24px;font-weight:800}
+.back{color:#fff;text-decoration:none}
+main{max-width:1200px;margin:auto;padding:35px 20px}
+.hero{text-align:center;margin-bottom:30px}
+.hero h1{font-size:42px;margin:0 0 10px}
+.hero p{color:#aeb6c2;font-size:17px}
+.builder{display:grid;grid-template-columns:360px 1fr;gap:20px}
+.panel,.preview{background:#111820;border:1px solid #27313c;border-radius:18px;padding:20px}
+label{display:block;margin:15px 0 8px;font-weight:700}
+textarea,input,select{width:100%;background:#0a0f14;color:#fff;border:1px solid #34404d;border-radius:10px;padding:13px;font-size:15px}
+textarea{min-height:150px;resize:vertical}
+button{width:100%;border:0;border-radius:10px;padding:14px;margin-top:15px;font-size:16px;font-weight:800;cursor:pointer;background:#fff;color:#080b0f}
+button.secondary{background:#202a35;color:#fff}
+.status{font-size:13px;color:#9ba7b5;margin-top:12px;min-height:18px}
+.preview h2{margin-top:0}
+iframe{width:100%;height:620px;border:1px solid #303b47;border-radius:12px;background:#fff}
+.tip{font-size:13px;color:#8f9baa;line-height:1.5;margin-top:14px}
+@media(max-width:800px){.builder{grid-template-columns:1fr}.hero h1{font-size:32px}iframe{height:550px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">AI Website Builder</div>
+  <a class="back" href="index.html">← Kthehu</a>
+</header>
+
+<main>
+<section class="hero">
+  <h1>Krijo website-in tënd me AI 🤖</h1>
+  <p>Shkruaj çfarë website-i dëshiron dhe krijo një preview menjëherë.</p>
+</section>
+
+<section class="builder">
+  <div class="panel">
+    <label for="idea">Çfarë website-i dëshiron?</label>
+    <textarea id="idea" placeholder="Shembull: Dua një website modern për një berberhane, me ngjyra të zeza dhe ari, Home, Services, Gallery dhe Contact."></textarea>
+
+    <label for="style">Stili</label>
+    <select id="style">
+      <option>Modern</option>
+      <option>Minimal</option>
+      <option>Luxury</option>
+      <option>Gaming</option>
+      <option>Business</option>
+    </select>
+
+    <label for="color">Ngjyra kryesore</label>
+    <input id="color" type="color" value="#7c3aed">
+
+    <button onclick="buildPreview()">Krijo dizajnin</button>
+    <button class="secondary" onclick="resetPreview()">Pastro</button>
+    <div class="status" id="status">Demo lokale — AI reale lidhet në hapin tjetër me backend/API.</div>
+    <div class="tip">Kjo faqe është gati për GitHub Pages. Për AI reale duhet backend që mban API key të sigurt.</div>
+  </div>
+
+  <div class="preview">
+    <h2>Live Preview</h2>
+    <iframe id="preview" title="Live website preview"></iframe>
+  </div>
+</section>
+</main>
+
+<script>
+function esc(s){
+  return s.replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
+}
+function buildPreview(){
+  const idea=document.getElementById('idea').value.trim() || 'Website modern';
+  const color=document.getElementById('color').value;
+  const style=document.getElementById('style').value;
+  const title=esc(idea.split(/[,.!?]/)[0].slice(0,55));
+  const html=`<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>
+  *{box-sizing:border-box}body{margin:0;font-family:Arial;background:#0b0d12;color:white}
+  nav{padding:22px 7%;display:flex;justify-content:space-between;border-bottom:1px solid #252a33}
+  .brand{font-weight:800}.links{display:flex;gap:22px;color:#cbd2dc}
+  .hero{min-height:480px;padding:90px 8%;display:flex;align-items:center;background:linear-gradient(135deg,#10151d,#0b0d12)}
+  h1{font-size:clamp(40px,7vw,78px);max-width:850px;margin:0 0 20px}.accent{color:${color}}
+  p{color:#b7c0cc;font-size:18px;max-width:650px;line-height:1.6}
+  .btn{display:inline-block;margin-top:20px;background:${color};color:white;padding:14px 24px;border-radius:10px;font-weight:800}
+  section{padding:55px 8%}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .card{background:#151b23;border:1px solid #27313c;padding:25px;border-radius:16px}
+  @media(max-width:700px){.links{display:none}.cards{grid-template-columns:1fr}}
+  </style></head><body>
+  <nav><div class="brand">MY WEBSITE</div><div class="links"><span>Home</span><span>Services</span><span>Gallery</span><span>Contact</span></div></nav>
+  <div class="hero"><div><div class="accent">${esc(style)}</div><h1>${title}</h1><p>Website i krijuar sipas kërkesës së klientit. Ky është preview fillestar i dizajnit.</p><div class="btn">Na kontakto</div></div></div>
+  <section><h2>Services</h2><div class="cards"><div class="card"><h3>Shërbimi 1</h3><p>Informacion rreth shërbimit.</p></div><div class="card"><h3>Shërbimi 2</h3><p>Informacion rreth shërbimit.</p></div><div class="card"><h3>Shërbimi 3</h3><p>Informacion rreth shërbimit.</p></div></div></section>
+  </body></html>`;
+  document.getElementById('preview').srcdoc=html;
+  document.getElementById('status').textContent='Preview u krijua. Hapi tjetër: lidhja me AI reale.';
+}
+function resetPreview(){
+  document.getElementById('idea').value='';
+  document.getElementById('preview').srcdoc='';
+  document.getElementById('status').textContent='Gati për një dizajn të ri.';
+}
+window.addEventListener('load',buildPreview);
+</script>
+</body>
+</html>
