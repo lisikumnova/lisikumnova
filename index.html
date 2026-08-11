@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="sq">
 
@@ -6,17 +5,11 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Lisi Kumnova | Technology · Design · Digital</title>
 
-
 <style>
-
-/* =========================================================
-   RESET
-========================================================= */
 
 * {
     margin: 0;
@@ -29,1300 +22,700 @@ html {
 }
 
 body {
-
     background: #050505;
-
     color: #ffffff;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+    font-family: Arial, Helvetica, sans-serif;
     overflow-x: hidden;
 }
 
-
-/* =========================================================
-   GLOBAL BACKGROUND
-========================================================= */
-
 body::before {
-
     content: "";
-
     position: fixed;
-
     inset: 0;
-
     z-index: -2;
-
     background:
-
-        radial-gradient(
-            circle at 15% 20%,
-            rgba(0,150,255,.12),
-            transparent 30%
-        ),
-
-        radial-gradient(
-            circle at 85% 70%,
-            rgba(120,0,255,.12),
-            transparent 30%
-        ),
-
+        radial-gradient(circle at 15% 20%, rgba(0,150,255,.12), transparent 30%),
+        radial-gradient(circle at 85% 70%, rgba(120,0,255,.12), transparent 30%),
         #050505;
 }
 
-
 .grid {
-
     position: fixed;
-
     inset: 0;
-
     z-index: -1;
-
     pointer-events: none;
-
     background-image:
-
-        linear-gradient(
-            rgba(255,255,255,.025) 1px,
-            transparent 1px
-        ),
-
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,.025) 1px,
-            transparent 1px
-        );
-
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
     background-size: 60px 60px;
-
-    mask-image:
-        linear-gradient(
-            to bottom,
-            black,
-            transparent
-        );
+    mask-image: linear-gradient(to bottom, black, transparent);
 }
 
-
-/* =========================================================
-   INTRO
-========================================================= */
+/* INTRO */
 
 #intro {
-
     position: fixed;
-
     inset: 0;
-
     background: #030303;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     z-index: 9999;
-
     overflow: hidden;
-
-    transition:
-        opacity 1.4s ease,
-        visibility 1.4s ease;
+    transition: opacity 1.4s ease, visibility 1.4s ease;
 }
 
 #intro.hide {
-
     opacity: 0;
-
     visibility: hidden;
-
     pointer-events: none;
 }
 
-
 .orb {
-
     position: absolute;
-
     width: 400px;
     height: 400px;
-
     border-radius: 50%;
-
-    background:
-
-        radial-gradient(
-            circle,
-            rgba(0,180,255,.18),
-            transparent 65%
-        );
-
+    background: radial-gradient(circle, rgba(0,180,255,.18), transparent 65%);
     filter: blur(5px);
-
-    animation:
-        orbMove 5s
-        ease-in-out
-        infinite alternate;
+    animation: orbMove 5s ease-in-out infinite alternate;
 }
-
 
 @keyframes orbMove {
-
     from {
-
-        transform:
-            scale(.7)
-            translate(-100px,-50px);
+        transform: scale(.7) translate(-100px,-50px);
     }
-
     to {
-
-        transform:
-            scale(1.2)
-            translate(100px,50px);
+        transform: scale(1.2) translate(100px,50px);
     }
 }
-
 
 .ring {
-
     position: absolute;
-
     width: 260px;
     height: 260px;
-
     border-radius: 50%;
-
-    border:
-        1px solid
-        rgba(0,180,255,.35);
-
-    box-shadow:
-        0 0 50px
-        rgba(0,140,255,.12);
-
-    animation:
-        ringSpin 8s
-        linear
-        infinite;
+    border: 1px solid rgba(0,180,255,.35);
+    box-shadow: 0 0 50px rgba(0,140,255,.12);
+    animation: ringSpin 8s linear infinite;
 }
-
 
 @keyframes ringSpin {
-
     from {
-
-        transform:
-            rotate(0deg)
-            scale(.7);
+        transform: rotate(0deg) scale(.7);
     }
-
     to {
-
-        transform:
-            rotate(360deg)
-            scale(1.2);
+        transform: rotate(360deg) scale(1.2);
     }
 }
 
-
 .intro-content {
-
     text-align: center;
-
     position: relative;
-
     z-index: 5;
 }
 
-
 .intro-small {
-
     font-size: 10px;
-
     letter-spacing: 7px;
-
     color: #58c7ff;
-
     margin-bottom: 25px;
-
     opacity: 0;
-
-    animation:
-        fadeIn 1s .7s forwards;
+    animation: fadeIn 1s .7s forwards;
 }
-
 
 .intro-name {
-
-    font-size:
-        clamp(3rem,10vw,8rem);
-
+    font-size: clamp(3rem,10vw,8rem);
     font-weight: 700;
-
     letter-spacing: 8px;
-
-    background:
-
-        linear-gradient(
-            90deg,
-            #ffffff,
-            #5ecbff,
-            #ffffff
-        );
-
+    background: linear-gradient(90deg,#ffffff,#5ecbff,#ffffff);
     -webkit-background-clip: text;
-
     -webkit-text-fill-color: transparent;
-
     opacity: 0;
-
-    transform:
-        scale(.8)
-        translateY(30px);
-
-    animation:
-        nameAppear
-        1.5s 1s forwards;
+    transform: scale(.8) translateY(30px);
+    animation: nameAppear 1.5s 1s forwards;
 }
-
 
 .intro-sub {
-
     margin-top: 25px;
-
     font-size: 11px;
-
     letter-spacing: 5px;
-
     color: #777;
-
     opacity: 0;
-
-    animation:
-        fadeIn
-        1s 2s forwards;
+    animation: fadeIn 1s 2s forwards;
 }
-
 
 .intro-line {
-
     width: 0;
-
     height: 1px;
-
     margin: 35px auto;
-
-    background:
-
-        linear-gradient(
-            90deg,
-            transparent,
-            #35baff,
-            transparent
-        );
-
-    animation:
-        lineGrow
-        1.5s 2.3s forwards;
+    background: linear-gradient(90deg,transparent,#35baff,transparent);
+    animation: lineGrow 1.5s 2.3s forwards;
 }
-
 
 @keyframes fadeIn {
-
     to {
         opacity: 1;
     }
 }
-
 
 @keyframes nameAppear {
-
     to {
-
         opacity: 1;
-
-        transform:
-            scale(1)
-            translateY(0);
+        transform: scale(1) translateY(0);
     }
 }
 
-
 @keyframes lineGrow {
-
     to {
         width: 280px;
     }
 }
 
-
-/* =========================================================
-   PARTICLES
-========================================================= */
+/* PARTICLES */
 
 .particles {
-
     position: absolute;
-
     inset: 0;
 }
 
-
 .particle {
-
     position: absolute;
-
     width: 2px;
     height: 2px;
-
     background: #50c7ff;
-
     border-radius: 50%;
-
-    animation:
-        particleMove
-        5s infinite
-        ease-in-out;
+    animation: particleMove 5s infinite ease-in-out;
 }
-
 
 @keyframes particleMove {
 
     0% {
-
         opacity: 0;
-
-        transform:
-            translateY(100px)
-            scale(.3);
+        transform: translateY(100px) scale(.3);
     }
 
     40% {
-
         opacity: .8;
     }
 
     100% {
-
         opacity: 0;
-
-        transform:
-            translateY(-150px)
-            scale(1.5);
+        transform: translateY(-150px) scale(1.5);
     }
 }
 
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
+/* NAVIGATION */
 
 nav {
-
     position: fixed;
-
     top: 0;
     left: 0;
     right: 0;
-
     height: 80px;
-
     display: flex;
-
-    justify-content:
-        space-between;
-
+    justify-content: space-between;
     align-items: center;
-
-    padding:
-        0 7%;
-
+    padding: 0 7%;
     z-index: 100;
-
-    background:
-
-        linear-gradient(
-            rgba(5,5,5,.95),
-            transparent
-        );
+    background: linear-gradient(rgba(5,5,5,.95),transparent);
 }
 
-
 .logo {
-
     font-size: 20px;
-
     font-weight: bold;
-
     letter-spacing: 4px;
-
     color: #5cc9ff;
 }
 
-
 nav ul {
-
     list-style: none;
-
     display: flex;
-
     gap: 35px;
-
     align-items: center;
 }
 
-
 nav a {
-
     color: #aaa;
-
     text-decoration: none;
-
     font-size: 10px;
-
     letter-spacing: 2px;
-
     transition: .3s;
 }
 
-
 nav a:hover {
-
     color: #55c8ff;
 }
 
-
-/* =========================================================
-   LANGUAGE BUTTONS
-========================================================= */
+/* LANGUAGE */
 
 .language-switcher {
-
     display: flex;
-
     gap: 5px;
-
     margin-left: 10px;
 }
 
-
 .language-switcher button {
-
     background: transparent;
-
-    border:
-        1px solid
-        rgba(255,255,255,.15);
-
+    border: 1px solid rgba(255,255,255,.15);
     color: #777;
-
-    padding:
-        7px 9px;
-
+    padding: 7px 9px;
     font-size: 9px;
-
     letter-spacing: 1px;
-
     cursor: pointer;
-
     transition: .3s;
 }
 
-
 .language-switcher button:hover {
-
     color: #55c8ff;
-
     border-color: #55c8ff;
 }
-
 
 .language-switcher button.active {
-
     color: #55c8ff;
-
     border-color: #55c8ff;
-
-    background:
-        rgba(60,190,255,.08);
+    background: rgba(60,190,255,.08);
 }
 
-
-/* =========================================================
-   HERO
-========================================================= */
+/* HERO */
 
 .hero {
-
     min-height: 100vh;
-
     display: flex;
-
     align-items: center;
-
-    padding:
-        120px 10%;
-
+    padding: 120px 10%;
     position: relative;
 }
 
-
 .hero-content {
-
     max-width: 900px;
 }
 
-
 .tag {
-
     font-size: 10px;
-
     letter-spacing: 5px;
-
     color: #4ec5ff;
-
     margin-bottom: 25px;
 }
 
-
 .hero h1 {
-
-    font-size:
-        clamp(4rem,10vw,9rem);
-
+    font-size: clamp(4rem,10vw,9rem);
     line-height: .85;
-
     letter-spacing: -5px;
-
     font-weight: 700;
 }
 
-
 .hero h1 span {
-
     color: transparent;
-
-    -webkit-text-stroke:
-        1px #4dc4ff;
+    -webkit-text-stroke: 1px #4dc4ff;
 }
 
-
 .hero-description {
-
     margin-top: 40px;
-
     max-width: 700px;
-
     color: #999;
-
     font-size: 16px;
-
     line-height: 1.8;
 }
 
-
 .hero-buttons {
-
     margin-top: 35px;
-
     display: flex;
-
     gap: 15px;
-
     flex-wrap: wrap;
 }
 
-
 .button {
-
-    padding:
-        15px 25px;
-
-    border:
-        1px solid #236886;
-
+    padding: 15px 25px;
+    border: 1px solid #236886;
     color: white;
-
     text-decoration: none;
-
     font-size: 10px;
-
     letter-spacing: 2px;
-
     transition: .4s;
 }
 
-
 .button:hover {
-
     background: #38bdf8;
-
     color: #000;
-
-    box-shadow:
-        0 0 30px
-        rgba(56,189,248,.35);
+    box-shadow: 0 0 30px rgba(56,189,248,.35);
 }
 
-
-/* =========================================================
-   ABOUT
-========================================================= */
+/* ABOUT */
 
 .about-home {
-
-    padding:
-        130px 10%;
-
-    border-top:
-        1px solid
-        rgba(255,255,255,.06);
+    padding: 130px 10%;
+    border-top: 1px solid rgba(255,255,255,.06);
 }
 
-
 .about-home-container {
-
     max-width: 1200px;
-
     margin: auto;
-
     display: grid;
-
-    grid-template-columns:
-        1fr 1.2fr;
-
+    grid-template-columns: 1fr 1.2fr;
     gap: 80px;
-
     align-items: center;
 }
 
-
 .about-home-image {
-
     position: relative;
 }
 
-
 .about-home-image::before {
-
     content: "";
-
     position: absolute;
-
     width: 100%;
     height: 100%;
-
     top: 15px;
     left: 15px;
-
-    border:
-        1px solid
-        rgba(70,190,255,.35);
-
+    border: 1px solid rgba(70,190,255,.35);
     z-index: 0;
 }
 
-
 .about-home-image img {
-
     width: 100%;
-
     max-width: 450px;
-
     height: 500px;
-
     object-fit: cover;
-
     display: block;
-
     position: relative;
-
     z-index: 1;
-
-    border:
-        1px solid
-        rgba(255,255,255,.12);
-
-    box-shadow:
-        0 20px 70px
-        rgba(0,0,0,.6);
+    border: 1px solid rgba(255,255,255,.12);
+    box-shadow: 0 20px 70px rgba(0,0,0,.6);
 }
 
-
 .about-home-content {
-
     max-width: 650px;
 }
 
-
 .small-title {
-
     color: #4cc5ff;
-
     font-size: 10px;
-
     font-weight: bold;
-
     letter-spacing: 4px;
 }
 
-
 .about-home-content h2 {
-
-    font-size:
-        clamp(2.5rem,6vw,5rem);
-
+    font-size: clamp(2.5rem,6vw,5rem);
     color: #fff;
-
-    margin:
-        20px 0 30px;
-
+    margin: 20px 0 30px;
     line-height: 1;
 }
 
-
 .about-home-content p {
-
     font-size: 15px;
-
     color: #888;
-
     margin-bottom: 18px;
-
     line-height: 1.9;
 }
 
-
 .about-home-content strong {
-
     color: #fff;
 }
 
-
 .about-button {
-
     display: inline-block;
-
     margin-top: 20px;
-
-    padding:
-        15px 25px;
-
-    border:
-        1px solid #236886;
-
+    padding: 15px 25px;
+    border: 1px solid #236886;
     color: white;
-
     text-decoration: none;
-
     font-size: 10px;
-
     letter-spacing: 2px;
-
     transition: .4s;
 }
 
-
 .about-button:hover {
-
     background: #38bdf8;
-
     color: #000;
-
-    box-shadow:
-        0 0 30px
-        rgba(56,189,248,.35);
-
-    transform:
-        translateY(-3px);
+    box-shadow: 0 0 30px rgba(56,189,248,.35);
+    transform: translateY(-3px);
 }
 
-
-/* =========================================================
-   GENERAL SECTION
-========================================================= */
+/* GENERAL */
 
 .section {
-
-    padding:
-        130px 10%;
-
-    border-top:
-        1px solid
-        rgba(255,255,255,.06);
+    padding: 130px 10%;
+    border-top: 1px solid rgba(255,255,255,.06);
 }
 
-
 .section-label {
-
     color: #4cc5ff;
-
     font-size: 10px;
-
     letter-spacing: 4px;
 }
 
-
 .section h2 {
-
     margin-top: 20px;
-
-    font-size:
-        clamp(2.5rem,6vw,5rem);
-
+    font-size: clamp(2.5rem,6vw,5rem);
     font-weight: 700;
 }
 
-
 .section-intro {
-
     max-width: 800px;
-
     margin-top: 25px;
-
     color: #999;
-
     line-height: 1.9;
-
     font-size: 15px;
 }
 
-
-/* =========================================================
-   SKILLS
-========================================================= */
+/* SKILLS */
 
 .skills {
-
     margin-top: 60px;
-
     display: grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
+    grid-template-columns: repeat(3,1fr);
     gap: 18px;
 }
 
-
 .skill {
-
     padding: 35px;
-
     min-height: 220px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.08);
-
-    background:
-        rgba(255,255,255,.025);
-
+    border: 1px solid rgba(255,255,255,.08);
+    background: rgba(255,255,255,.025);
     position: relative;
-
     overflow: hidden;
-
     transition: .5s;
 }
-
 
 .skill::before {
-
     content: "";
-
     position: absolute;
-
     top: 0;
     left: 0;
-
     width: 0;
-
     height: 2px;
-
-    background:
-        #42c4ff;
-
+    background: #42c4ff;
     transition: .5s;
 }
 
-
 .skill:hover {
-
-    transform:
-        translateY(-10px);
-
-    border-color:
-        rgba(60,190,255,.4);
-
-    box-shadow:
-        0 20px 60px
-        rgba(0,0,0,.4);
+    transform: translateY(-10px);
+    border-color: rgba(60,190,255,.4);
+    box-shadow: 0 20px 60px rgba(0,0,0,.4);
 }
 
-
 .skill:hover::before {
-
     width: 100%;
 }
 
-
 .skill-number {
-
     font-size: 10px;
-
     color: #4ec5ff;
-
     letter-spacing: 3px;
 }
 
-
 .skill h3 {
-
     margin-top: 55px;
-
     font-size: 25px;
 }
 
-
 .skill p {
-
     margin-top: 15px;
-
     color: #777;
-
     font-size: 13px;
-
     line-height: 1.7;
 }
 
-
-/* =========================================================
-   PROJECTS
-========================================================= */
+/* PROJECTS */
 
 .projects {
-
     margin-top: 60px;
-
     display: grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
+    grid-template-columns: repeat(2,1fr);
     gap: 20px;
 }
 
-
 .project {
-
     min-height: 300px;
-
     padding: 35px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.08);
-
-    background:
-
-        linear-gradient(
-            135deg,
-            rgba(30,30,30,.7),
-            rgba(10,10,10,.8)
-        );
-
+    border: 1px solid rgba(255,255,255,.08);
+    background: linear-gradient(135deg,rgba(30,30,30,.7),rgba(10,10,10,.8));
     transition: .5s;
 }
 
-
 .project:hover {
-
-    transform:
-        scale(1.02);
-
-    border-color:
-        rgba(70,190,255,.4);
+    transform: scale(1.02);
+    border-color: rgba(70,190,255,.4);
 }
 
-
 .project-number {
-
     color: #4cc5ff;
-
     font-size: 10px;
-
     letter-spacing: 3px;
 }
 
-
 .project h3 {
-
     margin-top: 100px;
-
     font-size: 30px;
 }
 
-
 .project p {
-
     margin-top: 15px;
-
     color: #777;
-
     line-height: 1.7;
 }
 
-
-/* =========================================================
-   GALLERY
-========================================================= */
+/* GALLERY */
 
 .gallery {
-
     margin-top: 60px;
-
     min-height: 350px;
-
-    border:
-        1px dashed
-        rgba(255,255,255,.15);
-
+    border: 1px dashed rgba(255,255,255,.15);
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     text-align: center;
-
     color: #555;
 }
 
-
 .gallery strong {
-
     display: block;
-
     color: #4cc5ff;
-
     margin-bottom: 10px;
 }
 
-
-/* =========================================================
-   CONTACT
-========================================================= */
+/* CONTACT */
 
 .contact {
-
     min-height: 70vh;
-
     display: flex;
-
     flex-direction: column;
-
     justify-content: center;
 }
 
-
 .contact-links {
-
     margin-top: 50px;
-
     display: flex;
-
     gap: 15px;
-
     flex-wrap: wrap;
 }
 
-
 .contact-link {
-
-    padding:
-        18px 25px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.1);
-
+    padding: 18px 25px;
+    border: 1px solid rgba(255,255,255,.1);
     color: white;
-
     text-decoration: none;
-
     font-size: 11px;
-
     letter-spacing: 2px;
-
     transition: .4s;
 }
 
-
 .contact-link:hover {
-
-    border-color:
-        #4dc6ff;
-
-    color:
-        #4dc6ff;
-
-    transform:
-        translateY(-5px);
+    border-color: #4dc6ff;
+    color: #4dc6ff;
+    transform: translateY(-5px);
 }
 
-
-/* =========================================================
-   FOOTER
-========================================================= */
+/* FOOTER */
 
 footer {
-
-    padding:
-        40px 10%;
-
-    border-top:
-        1px solid
-        rgba(255,255,255,.07);
-
+    padding: 40px 10%;
+    border-top: 1px solid rgba(255,255,255,.07);
     color: #555;
-
     font-size: 10px;
-
     letter-spacing: 2px;
-
     text-align: center;
 }
 
-
 footer p + p {
-
     margin-top: 12px;
-
     color: #4cc5ff;
 }
 
+/* AI BUTTON */
 
-/* =========================================================
-   MOBILE
-========================================================= */
+.ai-builder {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 9990;
+    background: #7c3aed;
+    color: #fff;
+    padding: 12px 16px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 800;
+    box-shadow: 0 8px 25px #0008;
+}
+
+/* MOBILE */
 
 @media(max-width:800px) {
 
     nav ul {
-
         gap: 10px;
     }
 
     nav a {
-
         font-size: 8px;
     }
 
     .language-switcher {
-
         margin-left: 5px;
     }
 
     .language-switcher button {
-
-        padding:
-            6px 7px;
+        padding: 6px 7px;
     }
-
 
     .hero {
-
-        padding:
-            120px 7%;
+        padding: 120px 7%;
     }
-
 
     .section {
-
-        padding:
-            90px 7%;
+        padding: 90px 7%;
     }
-
 
     .skills {
-
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
     }
-
 
     .projects {
-
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
     }
-
 
     .about-home {
-
-        padding:
-            90px 7%;
+        padding: 90px 7%;
     }
 
-
     .about-home-container {
-
-        grid-template-columns:
-            1fr;
-
+        grid-template-columns: 1fr;
         gap: 50px;
     }
 
-
     .about-home-image img {
-
         height: 400px;
-
         margin: auto;
     }
 
-
     .hero h1 {
-
-        letter-spacing:
-            -3px;
+        letter-spacing: -3px;
     }
 
 }
 
-
-/* =========================================================
-   VERY SMALL MOBILE
-========================================================= */
-
 @media(max-width:500px) {
 
     nav {
-
-        padding:
-            0 4%;
+        padding: 0 4%;
     }
 
     nav ul {
-
         gap: 7px;
     }
 
     nav a {
-
         display: none;
     }
 
     .language-switcher {
-
         display: flex;
+    }
+
+    .ai-builder {
+        bottom: 75px;
+        right: 15px;
     }
 
 }
@@ -1331,16 +724,11 @@ footer p + p {
 
 </head>
 
-
 <body>
-
 
 <div class="grid"></div>
 
-
-<!-- ========================================================
-     INTRO
-========================================================= -->
+<!-- INTRO -->
 
 <div id="intro">
 
@@ -1348,11 +736,7 @@ footer p + p {
 
     <div class="ring"></div>
 
-    <div
-        class="particles"
-        id="particles">
-    </div>
-
+    <div class="particles" id="particles"></div>
 
     <div class="intro-content">
 
@@ -1365,14 +749,11 @@ footer p + p {
 
         </div>
 
-
         <div class="intro-name">
             LISI KUMNOVA
         </div>
 
-
         <div class="intro-line"></div>
-
 
         <div
             class="intro-sub"
@@ -1387,10 +768,7 @@ footer p + p {
 
 </div>
 
-
-<!-- ========================================================
-     NAVIGATION
-========================================================= -->
+<!-- NAVIGATION -->
 
 <nav>
 
@@ -1398,76 +776,48 @@ footer p + p {
         LK
     </div>
 
-
     <ul>
 
         <li>
-            <a
-                href="#about"
-                data-sq="RRETH MEJE"
-                data-en="ABOUT ME">
-
+            <a href="#about"
+               data-sq="RRETH MEJE"
+               data-en="ABOUT ME">
                 RRETH MEJE
-
             </a>
         </li>
 
-
         <li>
-            <a
-                href="#skills"
-                data-sq="AFTËSITË"
-                data-en="SKILLS">
-
+            <a href="#skills"
+               data-sq="AFTËSITË"
+               data-en="SKILLS">
                 AFTËSITË
-
             </a>
         </li>
 
-
         <li>
-            <a
-                href="#projects"
-                data-sq="PUNA"
-                data-en="WORK">
-
+            <a href="#projects"
+               data-sq="PUNA"
+               data-en="WORK">
                 PUNA
-
             </a>
         </li>
-
 
         <li>
-            <a
-                href="#contact"
-                data-sq="KONTAKT"
-                data-en="CONTACT">
-
+            <a href="#contact"
+               data-sq="KONTAKT"
+               data-en="CONTACT">
                 KONTAKT
-
             </a>
         </li>
-
-
-        <!-- LANGUAGE -->
 
         <li class="language-switcher">
 
-            <button
-                id="sqBtn"
-                onclick="setLanguage('sq')">
-
+            <button id="sqBtn" onclick="setLanguage('sq')">
                 SQ
-
             </button>
 
-
-            <button
-                id="enBtn"
-                onclick="setLanguage('en')">
-
+            <button id="enBtn" onclick="setLanguage('en')">
                 EN
-
             </button>
 
         </li>
@@ -1476,15 +826,11 @@ footer p + p {
 
 </nav>
 
-
-<!-- ========================================================
-     HERO
-========================================================= -->
+<!-- HERO -->
 
 <section class="hero">
 
     <div class="hero-content">
-
 
         <div
             class="tag"
@@ -1495,33 +841,21 @@ footer p + p {
 
         </div>
 
-
         <h1>
-
             LISI<br>
-
             <span>KUMNOVA</span>
-
         </h1>
-
 
         <p
             class="hero-description"
             data-sq="Profesionist i teknologjisë me shkollim profesional në IT & Elektroteknikë dhe eksperiencë të gjerë në programim, web development, software, hardware, dizajn, 3D advertising, marketing dhe teknologji digjitale."
             data-en="Technology professional with professional education in IT & Electrical Engineering and extensive experience in programming, web development, software, hardware, design, 3D advertising, marketing and digital technologies.">
 
-            Profesionist i teknologjisë me shkollim
-            profesional në IT & Elektroteknikë dhe
-            eksperiencë të gjerë në programim,
-            web development, software, hardware,
-            dizajn, 3D advertising, marketing dhe
-            teknologji digjitale.
+            Profesionist i teknologjisë me shkollim profesional në IT & Elektroteknikë dhe eksperiencë të gjerë në programim, web development, software, hardware, dizajn, 3D advertising, marketing dhe teknologji digjitale.
 
         </p>
 
-
         <div class="hero-buttons">
-
 
             <a
                 href="#skills"
@@ -1533,7 +867,6 @@ footer p + p {
 
             </a>
 
-
             <a
                 href="#contact"
                 class="button"
@@ -1544,104 +877,64 @@ footer p + p {
 
             </a>
 
-
         </div>
 
     </div>
 
 </section>
 
+<!-- ABOUT -->
 
-<!-- ========================================================
-     ABOUT
-========================================================= -->
-
-<section
-    class="about-home"
-    id="about">
-
+<section class="about-home" id="about">
 
     <div class="about-home-container">
 
-
         <div class="about-home-image">
 
-            <img
-                src="lisi.jpg"
-                alt="Lisi Kumnova">
+            <img src="lisi.jpg" alt="Lisi Kumnova">
 
         </div>
 
-
         <div class="about-home-content">
-
 
             <span
                 class="small-title"
                 data-sq="01 / RRETH MEJE"
                 data-en="01 / ABOUT ME">
-
                 01 / RRETH MEJE
-
             </span>
-
 
             <h2
                 data-sq="Kush jam unë?"
                 data-en="Who am I?">
-
                 Kush jam unë?
-
             </h2>
-
 
             <p
                 data-sq="Përshëndetje, unë jam Lisi Kumnova, një designer dhe kreativ i apasionuar pas dizajnit, teknologjisë dhe artit digjital."
                 data-en="Hello, I am Lisi Kumnova, a designer and creative professional passionate about design, technology and digital art.">
-
-                Përshëndetje, unë jam
-                <strong>Lisi Kumnova</strong>,
-                një designer dhe kreativ i apasionuar
-                pas dizajnit, teknologjisë dhe artit digjital.
-
+                Përshëndetje, unë jam <strong>Lisi Kumnova</strong>, një designer dhe kreativ i apasionuar pas dizajnit, teknologjisë dhe artit digjital.
             </p>
-
 
             <p
                 data-sq="Merrem me Graphic Design, Logo Design, Branding, Web Design dhe 3D Design si dhe krijimin e reklamave kreative 3D."
                 data-en="I work with Graphic Design, Logo Design, Branding, Web Design and 3D Design, as well as creating creative 3D advertisements.">
-
-                Merrem me
-                <strong>
-                    Graphic Design, Logo Design,
-                    Branding, Web Design dhe 3D Design
-                </strong>
-                si dhe krijimin e reklamave kreative 3D.
-
+                Merrem me <strong>Graphic Design, Logo Design, Branding, Web Design dhe 3D Design</strong> si dhe krijimin e reklamave kreative 3D.
             </p>
-
 
             <p
                 data-sq="Më pëlqen të krijoj ide moderne, vizuale të veçanta dhe projekte që kombinojnë kreativitetin me teknologjinë."
                 data-en="I enjoy creating modern ideas, unique visuals and projects that combine creativity with technology.">
-
-                Më pëlqen të krijoj ide moderne,
-                vizuale të veçanta dhe projekte që
-                kombinojnë kreativitetin me teknologjinë.
-
+                Më pëlqen të krijoj ide moderne, vizuale të veçanta dhe projekte që kombinojnë kreativitetin me teknologjinë.
             </p>
-
 
             <a
                 href="rreth-meje.html"
                 class="about-button"
                 data-sq="MË SHUMË RRETH MEJE →"
                 data-en="MORE ABOUT ME →">
-
                 MË SHUMË RRETH MEJE →
-
             </a>
-
 
         </div>
 
@@ -1649,628 +942,327 @@ footer p + p {
 
 </section>
 
+<!-- SKILLS -->
 
-<!-- ========================================================
-     SKILLS
-========================================================= -->
-
-<section
-    class="section"
-    id="skills">
-
+<section class="section" id="skills">
 
     <div
         class="section-label"
         data-sq="02 / AFTËSITË"
         data-en="02 / SKILLS">
-
         02 / AFTËSITË
-
     </div>
-
 
     <h2
         data-sq="Çfarë bëj."
         data-en="What I do.">
-
         Çfarë bëj.
-
     </h2>
-
 
     <p
         class="section-intro"
         data-sq="Njohuri dhe eksperiencë në teknologji, dizajn dhe krijimtari digjitale."
         data-en="Knowledge and experience in technology, design and digital creativity.">
-
-        Njohuri dhe eksperiencë në teknologji,
-        dizajn dhe krijimtari digjitale.
-
+        Njohuri dhe eksperiencë në teknologji, dizajn dhe krijimtari digjitale.
     </p>
-
 
     <div class="skills">
 
-
         <div class="skill">
-
-            <div class="skill-number">
-                01 / WEB
-            </div>
-
-            <h3
-                data-sq="Web Development"
-                data-en="Web Development">
-
-                Web Development
-
-            </h3>
-
+            <div class="skill-number">01 / WEB</div>
+            <h3>Web Development</h3>
             <p
                 data-sq="Krijim dhe zhvillim i website-ve moderne, responsive dhe funksionale."
                 data-en="Creation and development of modern, responsive and functional websites.">
-
-                Krijim dhe zhvillim i website-ve
-                moderne, responsive dhe funksionale.
-
+                Krijim dhe zhvillim i website-ve moderne, responsive dhe funksionale.
             </p>
-
         </div>
 
-
         <div class="skill">
-
-            <div class="skill-number">
-                02 / DESIGN
-            </div>
-
-            <h3
-                data-sq="Graphic Design"
-                data-en="Graphic Design">
-
-                Graphic Design
-
-            </h3>
-
+            <div class="skill-number">02 / DESIGN</div>
+            <h3>Graphic Design</h3>
             <p
                 data-sq="Dizajn grafik, materiale kreative, postera dhe përmbajtje digjitale."
                 data-en="Graphic design, creative materials, posters and digital content.">
-
-                Dizajn grafik, materiale kreative,
-                postera dhe përmbajtje digjitale.
-
+                Dizajn grafik, materiale kreative, postera dhe përmbajtje digjitale.
             </p>
-
         </div>
 
-
         <div class="skill">
-
-            <div class="skill-number">
-                03 / BRAND
-            </div>
-
-            <h3
-                data-sq="Logo & Branding"
-                data-en="Logo & Branding">
-
-                Logo & Branding
-
-            </h3>
-
+            <div class="skill-number">03 / BRAND</div>
+            <h3>Logo & Branding</h3>
             <p
                 data-sq="Krijim logo-sh dhe identitetesh vizuale për biznese dhe marka."
                 data-en="Creation of logos and visual identities for businesses and brands.">
-
-                Krijim logo-sh dhe identitetesh
-                vizuale për biznese dhe marka.
-
+                Krijim logo-sh dhe identitetesh vizuale për biznese dhe marka.
             </p>
-
         </div>
 
-
         <div class="skill">
-
-            <div class="skill-number">
-                04 / 3D
-            </div>
-
-            <h3
-                data-sq="3D Design"
-                data-en="3D Design">
-
-                3D Design
-
-            </h3>
-
+            <div class="skill-number">04 / 3D</div>
+            <h3>3D Design</h3>
             <p
                 data-sq="Modelim 3D, rendering dhe krijim të materialeve vizuale kreative."
                 data-en="3D modeling, rendering and creation of creative visual materials.">
-
-                Modelim 3D, rendering dhe krijim
-                të materialeve vizuale kreative.
-
+                Modelim 3D, rendering dhe krijim të materialeve vizuale kreative.
             </p>
-
         </div>
 
-
         <div class="skill">
-
-            <div class="skill-number">
-                05 / ADS
-            </div>
-
-            <h3
-                data-sq="3D Advertising"
-                data-en="3D Advertising">
-
-                3D Advertising
-
-            </h3>
-
+            <div class="skill-number">05 / ADS</div>
+            <h3>3D Advertising</h3>
             <p
                 data-sq="Krijim dhe montim i reklamave 3D dhe përmbajtjeve promocionale."
                 data-en="Creation and editing of 3D advertisements and promotional content.">
-
-                Krijim dhe montim i reklamave
-                3D dhe përmbajtjeve promocionale.
-
+                Krijim dhe montim i reklamave 3D dhe përmbajtjeve promocionale.
             </p>
-
         </div>
 
-
         <div class="skill">
-
-            <div class="skill-number">
-                06 / DIGITAL
-            </div>
-
-            <h3
-                data-sq="Digital Marketing"
-                data-en="Digital Marketing">
-
-                Digital Marketing
-
-            </h3>
-
+            <div class="skill-number">06 / DIGITAL</div>
+            <h3>Digital Marketing</h3>
             <p
                 data-sq="Marketing digjital, reklama online dhe prezencë profesionale online."
                 data-en="Digital marketing, online advertising and professional online presence.">
-
-                Marketing digjital, reklama online
-                dhe prezencë profesionale online.
-
+                Marketing digjital, reklama online dhe prezencë profesionale online.
             </p>
-
         </div>
 
-
         <div class="skill">
-
-            <div class="skill-number">
-                07 / CODE
-            </div>
-
-            <h3
-                data-sq="Programming"
-                data-en="Programming">
-
-                Programming
-
-            </h3>
-
+            <div class="skill-number">07 / CODE</div>
+            <h3>Programming</h3>
             <p
                 data-sq="Programim dhe zhvillim software dhe zgjidhje teknologjike."
                 data-en="Programming, software development and technological solutions.">
-
-                Programim dhe zhvillim software
-                dhe zgjidhje teknologjike.
-
+                Programim dhe zhvillim software dhe zgjidhje teknologjike.
             </p>
-
         </div>
 
-
         <div class="skill">
-
-            <div class="skill-number">
-                08 / HARDWARE
-            </div>
-
-            <h3
-                data-sq="PC & Hardware"
-                data-en="PC & Hardware">
-
-                PC & Hardware
-
-            </h3>
-
+            <div class="skill-number">08 / HARDWARE</div>
+            <h3>PC & Hardware</h3>
             <p
                 data-sq="Montim, konfigurim dhe optimizim i kompjuterëve dhe sistemeve."
                 data-en="Assembly, configuration and optimization of computers and systems.">
-
-                Montim, konfigurim dhe optimizim
-                i kompjuterëve dhe sistemeve.
-
+                Montim, konfigurim dhe optimizim i kompjuterëve dhe sistemeve.
             </p>
-
         </div>
 
-
         <div class="skill">
-
-            <div class="skill-number">
-                09 / SOCIAL
-            </div>
-
-            <h3
-                data-sq="Social Media"
-                data-en="Social Media">
-
-                Social Media
-
-            </h3>
-
+            <div class="skill-number">09 / SOCIAL</div>
+            <h3>Social Media</h3>
             <p
                 data-sq="Krijim përmbajtjesh dhe menaxhim i prezencës në rrjetet sociale."
                 data-en="Content creation and management of social media presence.">
-
-                Krijim përmbajtjesh dhe menaxhim
-                i prezencës në rrjetet sociale.
-
+                Krijim përmbajtjesh dhe menaxhim i prezencës në rrjetet sociale.
             </p>
-
         </div>
-
 
     </div>
 
 </section>
 
+<!-- PROJECTS -->
 
-<!-- ========================================================
-     PROJECTS
-========================================================= -->
-
-<section
-    class="section"
-    id="projects">
-
+<section class="section" id="projects">
 
     <div
         class="section-label"
         data-sq="03 / PUNA IME"
         data-en="03 / MY WORK">
-
         03 / PUNA IME
-
     </div>
-
 
     <h2
         data-sq="Projektet."
         data-en="Projects.">
-
         Projektet.
-
     </h2>
-
 
     <p
         class="section-intro"
         data-sq="Një përmbledhje e disa prej fushave dhe projekteve ku kam punuar."
         data-en="An overview of some of the fields and projects I have worked on.">
-
-        Një përmbledhje e disa prej fushave
-        dhe projekteve ku kam punuar.
-
+        Një përmbledhje e disa prej fushave dhe projekteve ku kam punuar.
     </p>
-
 
     <div class="projects">
 
-
         <div class="project">
-
-            <div class="project-number">
-                PROJECT 01
-            </div>
-
-            <h3
-                data-sq="Website Development"
-                data-en="Website Development">
-
-                Website Development
-
-            </h3>
-
+            <div class="project-number">PROJECT 01</div>
+            <h3>Website Development</h3>
             <p
                 data-sq="Krijim dhe zhvillim i website-ve moderne për projekte dhe biznese."
                 data-en="Creation and development of modern websites for projects and businesses.">
-
-                Krijim dhe zhvillim i website-ve
-                moderne për projekte dhe biznese.
-
+                Krijim dhe zhvillim i website-ve moderne për projekte dhe biznese.
             </p>
-
         </div>
 
-
         <div class="project">
-
-            <div class="project-number">
-                PROJECT 02
-            </div>
-
-            <h3
-                data-sq="Logo & Branding"
-                data-en="Logo & Branding">
-
-                Logo & Branding
-
-            </h3>
-
+            <div class="project-number">PROJECT 02</div>
+            <h3>Logo & Branding</h3>
             <p
                 data-sq="Identitete vizuale, logo design dhe materiale branding."
                 data-en="Visual identities, logo design and branding materials.">
-
-                Identitete vizuale, logo design
-                dhe materiale branding.
-
+                Identitete vizuale, logo design dhe materiale branding.
             </p>
-
         </div>
 
-
         <div class="project">
-
-            <div class="project-number">
-                PROJECT 03
-            </div>
-
-            <h3
-                data-sq="3D Advertising"
-                data-en="3D Advertising">
-
-                3D Advertising
-
-            </h3>
-
+            <div class="project-number">PROJECT 03</div>
+            <h3>3D Advertising</h3>
             <p
                 data-sq="Reklama 3D dhe përmbajtje kreative për produkte dhe marka."
                 data-en="3D advertisements and creative content for products and brands.">
-
-                Reklama 3D dhe përmbajtje kreative
-                për produkte dhe marka.
-
+                Reklama 3D dhe përmbajtje kreative për produkte dhe marka.
             </p>
-
         </div>
 
-
         <div class="project">
-
-            <div class="project-number">
-                PROJECT 04
-            </div>
-
-            <h3
-                data-sq="Digital Projects"
-                data-en="Digital Projects">
-
-                Digital Projects
-
-            </h3>
-
+            <div class="project-number">PROJECT 04</div>
+            <h3>Digital Projects</h3>
             <p
                 data-sq="Projekte digjitale që kombinojnë teknologjinë, dizajnin dhe kreativitetin."
                 data-en="Digital projects that combine technology, design and creativity.">
-
-                Projekte digjitale që kombinojnë
-                teknologjinë, dizajnin dhe kreativitetin.
-
+                Projekte digjitale që kombinojnë teknologjinë, dizajnin dhe kreativitetin.
             </p>
-
         </div>
-
 
     </div>
 
-
-    <div
-        style="
-        margin-top:40px;
-        text-align:center;
-        ">
-
+    <div style="margin-top:40px;text-align:center;">
 
         <a
             href="puna.html"
             class="button"
             data-sq="SHIKO TË GJITHA PUNËT →"
             data-en="VIEW ALL WORK →">
-
             SHIKO TË GJITHA PUNËT →
-
         </a>
-
 
     </div>
 
 </section>
 
-
-<!-- ========================================================
-     GALLERY
-========================================================= -->
+<!-- GALLERY -->
 
 <section class="section">
-
 
     <div
         class="section-label"
         data-sq="04 / GALERIA"
         data-en="04 / GALLERY">
-
         04 / GALERIA
-
     </div>
-
 
     <h2
         data-sq="Projektet vizuale."
         data-en="Visual projects.">
-
         Projektet vizuale.
-
     </h2>
-
 
     <p
         class="section-intro"
         data-sq="Këtu mund të vendosen fotografitë e projekteve, dizajneve dhe reklamave."
         data-en="This is where photos of projects, designs and advertisements can be displayed.">
-
-        Këtu mund të vendosen fotografitë
-        e projekteve, dizajneve dhe reklamave.
-
+        Këtu mund të vendosen fotografitë e projekteve, dizajneve dhe reklamave.
     </p>
-
 
     <div class="gallery">
 
-
         <div>
 
-            <strong>
-                GALLERY
-            </strong>
-
+            <strong>GALLERY</strong>
 
             <span
                 data-sq="Fotot dhe projektet do të shtohen këtu."
                 data-en="Photos and projects will be added here.">
-
-                Fotot dhe projektet do të
-                shtohen këtu.
-
+                Fotot dhe projektet do të shtohen këtu.
             </span>
 
         </div>
-
 
     </div>
 
 </section>
 
+<!-- CONTACT -->
 
-<!-- ========================================================
-     CONTACT
-========================================================= -->
-
-<section
-    class="section contact"
-    id="contact">
-
+<section class="section contact" id="contact">
 
     <div
         class="section-label"
         data-sq="05 / KONTAKT"
         data-en="05 / CONTACT">
-
         05 / KONTAKT
-
     </div>
-
 
     <h2
         data-sq="Le të lidhemi."
         data-en="Let's connect.">
-
         Le të lidhemi.
-
     </h2>
-
 
     <p
         class="section-intro"
         data-sq="Për projekte, bashkëpunime, website, dizajn, marketing ose zgjidhje digjitale."
         data-en="For projects, collaborations, websites, design, marketing or digital solutions.">
-
-        Për projekte, bashkëpunime,
-        website, dizajn, marketing ose
-        zgjidhje digjitale.
-
+        Për projekte, bashkëpunime, website, dizajn, marketing ose zgjidhje digjitale.
     </p>
 
-
     <div class="contact-links">
-
 
         <a
             href="kontakti.html"
             class="contact-link"
             data-sq="KONTAKT"
             data-en="CONTACT">
-
             KONTAKT
-
         </a>
-
 
         <a
             href="https://www.instagram.com/lisi.kumnova"
             target="_blank"
+            rel="noopener"
             class="contact-link">
-
             INSTAGRAM
-
         </a>
-
 
         <a
             href="https://linktr.ee/lisik"
             target="_blank"
+            rel="noopener"
             class="contact-link">
-
             LINKTREE
-
         </a>
-
 
     </div>
 
 </section>
 
-
-<!-- ========================================================
-     FOOTER
-========================================================= -->
+<!-- FOOTER -->
 
 <footer>
-
 
     <p
         data-sq="© Të gjitha të drejtat janë të rezervuara 2026 · Design by: LISI KUMNOVA"
         data-en="© All rights reserved 2026 · Design by: LISI KUMNOVA">
-
-        © Të gjitha të drejtat janë të rezervuara 2026
-        · Design by: LISI KUMNOVA
-
+        © Të gjitha të drejtat janë të rezervuara 2026 · Design by: LISI KUMNOVA
     </p>
-
 
     <p>
         TECHNOLOGY · DESIGN · DIGITAL
     </p>
 
-
 </footer>
 
+<!-- AI BUILDER -->
 
+<a
+    href="ai-builder.html"
+    class="ai-builder">
+    🤖 AI Builder
+</a>
 
 <!-- ========================================================
      JAVASCRIPT
@@ -2278,143 +1270,83 @@ footer p + p {
 
 <script>
 
+/* INTRO */
 
-/* =========================================================
-   INTRO
-========================================================= */
+window.addEventListener("load", function() {
 
-window.addEventListener(
-    "load",
-    function() {
+    setTimeout(function() {
 
-        setTimeout(
-            function() {
+        document
+            .getElementById("intro")
+            .classList
+            .add("hide");
 
-                document
-                    .getElementById("intro")
-                    .classList
-                    .add("hide");
+    }, 3500);
 
-            },
-            3500
-        );
-
-    }
-);
+});
 
 
-
-/* =========================================================
-   PARTICLES
-========================================================= */
+/* PARTICLES */
 
 const particles =
-    document.getElementById(
-        "particles"
-    );
+    document.getElementById("particles");
 
-
-for (
-    let i = 0;
-    i < 60;
-    i++
-) {
+for (let i = 0; i < 60; i++) {
 
     const particle =
-        document.createElement(
-            "div"
-        );
+        document.createElement("div");
 
-
-    particle.classList.add(
-        "particle"
-    );
-
+    particle.classList.add("particle");
 
     particle.style.left =
         Math.random() * 100 + "%";
 
-
     particle.style.top =
         Math.random() * 100 + "%";
-
 
     particle.style.animationDelay =
         Math.random() * 5 + "s";
 
-
     particle.style.animationDuration =
         3 + Math.random() * 5 + "s";
 
-
-    particles.appendChild(
-        particle
-    );
+    particles.appendChild(particle);
 
 }
 
 
-
-/* =========================================================
-   LANGUAGE SYSTEM
-========================================================= */
+/* LANGUAGE SYSTEM */
 
 function setLanguage(language) {
-
-
-    /* ---------------------------------------------
-       CHANGE HTML LANGUAGE
-    --------------------------------------------- */
 
     document.documentElement.lang =
         language;
 
-
-    /* ---------------------------------------------
-       CHANGE ALL TRANSLATED ELEMENTS
-    --------------------------------------------- */
-
     const elements =
-        document.querySelectorAll(
-            "[data-sq]"
-        );
+        document.querySelectorAll("[data-sq]");
 
+    elements.forEach(function(element) {
 
-    elements.forEach(
-        function(element) {
+        const text =
+            element.getAttribute(
+                "data-" + language
+            );
 
-            const text =
-                element.getAttribute(
-                    "data-" + language
-                );
-
-
-            if (text) {
-
-                element.textContent =
-                    text;
-
-            }
-
+        if (text) {
+            element.textContent = text;
         }
-    );
 
-
-    /* ---------------------------------------------
-       ACTIVE BUTTON
-    --------------------------------------------- */
+    });
 
     document
         .getElementById("sqBtn")
         .classList
         .remove("active");
 
-
     document
         .getElementById("enBtn")
         .classList
         .remove("active");
-
 
     if (language === "sq") {
 
@@ -2432,11 +1364,6 @@ function setLanguage(language) {
 
     }
 
-
-    /* ---------------------------------------------
-       SAVE LANGUAGE
-    --------------------------------------------- */
-
     localStorage.setItem(
         "siteLanguage",
         language
@@ -2445,25 +1372,19 @@ function setLanguage(language) {
 }
 
 
-
-/* =========================================================
-   LOAD SAVED LANGUAGE
-========================================================= */
+/* LOAD LANGUAGE */
 
 const savedLanguage =
     localStorage.getItem(
         "siteLanguage"
     );
 
-
 if (
     savedLanguage === "en" ||
     savedLanguage === "sq"
 ) {
 
-    setLanguage(
-        savedLanguage
-    );
+    setLanguage(savedLanguage);
 
 } else {
 
@@ -2474,9 +1395,17 @@ if (
 </script>
 
 
+<!-- ========================================================
+     RESPOND.IO LIVE CHAT
+========================================================= -->
 
-<a href="ai-builder.html" style="position:fixed;right:18px;bottom:18px;z-index:9999;background:#7c3aed;color:#fff;padding:12px 16px;border-radius:999px;text-decoration:none;font-weight:800;box-shadow:0 8px 25px #0008">🤖 AI Builder</a>
+<script
+    id="respondio__widget"
+    src="https://cdn.respond.io/webchat/widget/widget.js?cId=3d297ae3528e4107614bf2eeb2ef9dc">
+</script>
+
+<!-- END RESPOND.IO LIVE CHAT -->
+
 </body>
 
 </html>
-```
