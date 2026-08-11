@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AI Website Builder | Lisi Kumnova</title>
+<title>AI Website Builder</title>
 
 <style>
 *{
@@ -13,74 +13,68 @@
 
 body{
   margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  background:#070a0f;
+  font-family:Arial,sans-serif;
+  background:#090d12;
   color:#fff;
 }
 
 header{
-  padding:20px 6%;
+  padding:22px 6%;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  border-bottom:1px solid #202731;
-  background:#090d13;
+  border-bottom:1px solid #222;
 }
 
 .logo{
-  font-size:23px;
+  font-size:24px;
   font-weight:800;
 }
 
 .back{
   color:#fff;
   text-decoration:none;
-  opacity:.85;
-}
-
-.back:hover{
-  opacity:1;
 }
 
 main{
   max-width:1250px;
   margin:auto;
-  padding:40px 20px;
+  padding:35px 20px;
 }
 
 .hero{
   text-align:center;
-  margin-bottom:35px;
+  margin-bottom:30px;
 }
 
 .hero h1{
-  font-size:clamp(32px,5vw,52px);
-  margin:0 0 12px;
+  font-size:42px;
+  margin:0 0 10px;
 }
 
 .hero p{
-  color:#aab4c0;
+  color:#aeb6c2;
   font-size:17px;
-  margin:0;
 }
 
 .builder{
   display:grid;
-  grid-template-columns:370px 1fr;
-  gap:22px;
+  grid-template-columns:360px 1fr;
+  gap:20px;
 }
 
 .panel,
-.preview{
-  background:#10161e;
+.preview,
+.payment{
+  background:#111820;
   border:1px solid #27313c;
   border-radius:18px;
-  padding:22px;
+  padding:20px;
 }
 
 label{
   display:block;
-  margin:16px 0 8px;
+  margin:15px 0 8px;
   font-weight:700;
 }
 
@@ -88,54 +82,30 @@ textarea,
 input,
 select{
   width:100%;
-  background:#080d13;
+  background:#0a0f14;
   color:#fff;
   border:1px solid #34404d;
-  border-radius:11px;
+  border-radius:10px;
   padding:13px;
   font-size:15px;
-  outline:none;
 }
 
 textarea{
-  min-height:155px;
+  min-height:150px;
   resize:vertical;
-}
-
-textarea:focus,
-select:focus{
-  border-color:#7c3aed;
-}
-
-input[type="color"]{
-  height:50px;
-  padding:5px;
-  cursor:pointer;
 }
 
 button{
   width:100%;
   border:0;
-  border-radius:11px;
-  padding:15px;
-  margin-top:16px;
+  border-radius:10px;
+  padding:14px;
+  margin-top:15px;
   font-size:16px;
   font-weight:800;
   cursor:pointer;
   background:#fff;
   color:#080b0f;
-  transition:.2s;
-}
-
-button:hover{
-  opacity:.9;
-  transform:translateY(-1px);
-}
-
-button:disabled{
-  opacity:.5;
-  cursor:not-allowed;
-  transform:none;
 }
 
 button.secondary{
@@ -143,85 +113,115 @@ button.secondary{
   color:#fff;
 }
 
+button.pay{
+  background:#7c3aed;
+  color:#fff;
+}
+
 .status{
   font-size:13px;
   color:#9ba7b5;
-  margin-top:13px;
-  min-height:20px;
-  line-height:1.5;
-}
-
-.tip{
-  font-size:13px;
-  color:#7f8b99;
-  line-height:1.5;
-  margin-top:14px;
+  margin-top:12px;
+  min-height:18px;
 }
 
 .preview h2{
   margin-top:0;
-  margin-bottom:15px;
-}
-
-.preview-box{
-  position:relative;
 }
 
 iframe{
   width:100%;
-  height:650px;
+  height:620px;
   border:1px solid #303b47;
   border-radius:12px;
   background:#fff;
 }
 
-.loading{
-  position:absolute;
-  inset:0;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  background:rgba(7,10,15,.75);
-  border-radius:12px;
-  z-index:5;
+.tip{
+  font-size:13px;
+  color:#8f9baa;
+  line-height:1.5;
+  margin-top:14px;
 }
 
-.loading.active{
-  display:flex;
+.payment{
+  margin-top:20px;
 }
 
-.loading-box{
-  background:#111820;
-  border:1px solid #34404d;
-  padding:22px 28px;
-  border-radius:14px;
+.payment h2{
+  margin-top:0;
+}
+
+.packages{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:20px;
+}
+
+.package{
+  background:#0b1016;
+  border:1px solid #303b47;
+  border-radius:16px;
+  padding:24px;
   text-align:center;
 }
 
-.spinner{
-  width:30px;
-  height:30px;
-  border:3px solid #394553;
-  border-top-color:#fff;
-  border-radius:50%;
-  animation:spin .8s linear infinite;
-  margin:0 auto 12px;
+.package h3{
+  margin-top:0;
 }
 
-@keyframes spin{
-  to{
-    transform:rotate(360deg);
-  }
+.price{
+  font-size:34px;
+  font-weight:900;
+  margin:15px 0;
 }
 
-@media(max-width:850px){
+.package p{
+  color:#aeb6c2;
+  min-height:60px;
+}
+
+.badge{
+  display:inline-block;
+  padding:5px 10px;
+  border-radius:20px;
+  background:#202a35;
+  color:#cbd2dc;
+  font-size:12px;
+  margin-bottom:10px;
+}
+
+.locked{
+  margin-top:18px;
+  padding:15px;
+  border-radius:12px;
+  background:#161d26;
+  color:#aeb6c2;
+  text-align:center;
+  font-size:14px;
+}
+
+.hidden{
+  display:none;
+}
+
+@media(max-width:900px){
 
   .builder{
     grid-template-columns:1fr;
   }
 
+  .packages{
+    grid-template-columns:1fr;
+  }
+
+  .hero h1{
+    font-size:32px;
+  }
+
   iframe{
-    height:570px;
+    height:550px;
   }
 }
 </style>
@@ -232,7 +232,7 @@ iframe{
 <header>
 
   <div class="logo">
-    Lisi Kumnova AI
+    AI Website Builder
   </div>
 
   <a class="back" href="index.html">
@@ -240,7 +240,6 @@ iframe{
   </a>
 
 </header>
-
 
 <main>
 
@@ -251,7 +250,7 @@ iframe{
   </h1>
 
   <p>
-    Shkruaj çfarë website-i dëshiron dhe AI do ta krijojë dizajnin për ty.
+    Përshkruaj website-in që dëshiron dhe AI do ta krijojë për ty.
   </p>
 
 </section>
@@ -259,111 +258,219 @@ iframe{
 
 <section class="builder">
 
-  <div class="panel">
 
-    <label for="idea">
-      Çfarë website-i dëshiron?
-    </label>
+<!-- LEFT PANEL -->
 
-    <textarea
-      id="idea"
-      placeholder="Shembull: Dua një website modern për një berberhane me ngjyra të zeza dhe ari, Home, Services, Gallery, About dhe Contact."
-    ></textarea>
+<div class="panel">
 
+  <label for="idea">
+    Çfarë website-i dëshiron?
+  </label>
 
-    <label for="style">
-      Stili
-    </label>
-
-    <select id="style">
-
-      <option>Modern</option>
-      <option>Minimal</option>
-      <option>Luxury</option>
-      <option>Gaming</option>
-      <option>Business</option>
-      <option>Creative</option>
-
-    </select>
+  <textarea
+    id="idea"
+    placeholder="Shembull: Dua një website modern për një berberhane, me ngjyra të zeza dhe ari, Home, Services, Gallery dhe Contact."
+  ></textarea>
 
 
-    <label for="color">
-      Ngjyra kryesore
-    </label>
+  <label for="style">
+    Stili
+  </label>
 
-    <input
-      id="color"
-      type="color"
-      value="#7c3aed"
-    >
+  <select id="style">
 
+    <option>Modern</option>
+    <option>Minimal</option>
+    <option>Luxury</option>
+    <option>Gaming</option>
+    <option>Business</option>
 
-    <button
-      id="generateBtn"
-      onclick="buildPreview()"
-    >
-      ✨ Krijo dizajnin me AI
-    </button>
+  </select>
 
 
-    <button
-      class="secondary"
-      onclick="resetPreview()"
-    >
-      Pastro
-    </button>
+  <label for="color">
+    Ngjyra kryesore
+  </label>
+
+  <input
+    id="color"
+    type="color"
+    value="#7c3aed"
+  >
 
 
-    <div
-      class="status"
-      id="status"
-    >
-      Gati për të krijuar website-in.
+  <button onclick="buildWebsite()">
+    ✨ Krijo dizajnin me AI
+  </button>
+
+
+  <button
+    class="secondary"
+    onclick="resetPreview()"
+  >
+    Pastro
+  </button>
+
+
+  <div
+    class="status"
+    id="status"
+  >
+    Gati për krijim.
+  </div>
+
+
+  <div class="tip">
+
+    Preview është falas.
+    Për shkarkim ose vazhdim të projektit kërkohet pagesa.
+
+  </div>
+
+</div>
+
+
+<!-- PREVIEW -->
+
+<div class="preview">
+
+  <h2>
+    Live Preview
+  </h2>
+
+  <iframe
+    id="preview"
+    title="Live website preview"
+  ></iframe>
+
+</div>
+
+</section>
+
+
+<!-- PAYMENT -->
+
+<section
+  class="payment"
+  id="paymentSection"
+>
+
+  <h2>
+    🚀 Website-i yt është gati
+  </h2>
+
+  <p class="tip">
+
+    Zgjidh paketën që dëshiron.
+    Download-i aktivizohet pasi pagesa të konfirmohet.
+
+  </p>
+
+
+  <div class="packages">
+
+
+    <!-- BASIC -->
+
+    <div class="package">
+
+      <span class="badge">
+        BASIC
+      </span>
+
+      <h3>
+        Basic Website
+      </h3>
+
+      <div class="price">
+        49€
+      </div>
+
+      <p>
+        Website profesional me seksionet kryesore.
+      </p>
+
+      <button
+        class="pay"
+        onclick="startPayment('basic',49)"
+      >
+        💳 Paguaj 49€
+      </button>
+
     </div>
 
 
-    <div class="tip">
+    <!-- PROFESSIONAL -->
 
-      💡 Përshkruaje sa më qartë biznesin,
-      ngjyrat, seksionet dhe funksionet që dëshiron.
+    <div class="package">
+
+      <span class="badge">
+        MË POPULLORE
+      </span>
+
+      <h3>
+        Professional
+      </h3>
+
+      <div class="price">
+        99€
+      </div>
+
+      <p>
+        Website më i avancuar me më shumë seksione dhe funksione.
+      </p>
+
+      <button
+        class="pay"
+        onclick="startPayment('professional',99)"
+      >
+        💳 Paguaj 99€
+      </button>
+
+    </div>
+
+
+    <!-- PREMIUM -->
+
+    <div class="package">
+
+      <span class="badge">
+        PREMIUM
+      </span>
+
+      <h3>
+        Premium
+      </h3>
+
+      <div class="price">
+        149€
+      </div>
+
+      <p>
+        Website premium me dizajn dhe funksione të avancuara.
+      </p>
+
+      <button
+        class="pay"
+        onclick="startPayment('premium',149)"
+      >
+        💳 Paguaj 149€
+      </button>
 
     </div>
 
   </div>
 
 
-  <div class="preview">
+  <div class="locked">
 
-    <h2>
-      Live Preview
-    </h2>
+    🔒 Download është i bllokuar derisa pagesa të konfirmohet.
 
-    <div class="preview-box">
+    <br>
 
-      <div
-        class="loading"
-        id="loading"
-      >
-
-        <div class="loading-box">
-
-          <div class="spinner"></div>
-
-          <div>
-            AI po krijon website-in...
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <iframe
-        id="preview"
-        title="AI Website Preview"
-      ></iframe>
-
-    </div>
+    <strong>
+      Paysera do të lidhet këtu.
+    </strong>
 
   </div>
 
@@ -374,117 +481,137 @@ iframe{
 
 <script>
 
-/* =====================================================
-   AI WEBSITE BUILDER
-===================================================== */
 
-async function buildPreview(){
+/* =========================
+   ESCAPE HTML
+========================= */
+
+function esc(s){
+
+  return String(s).replace(
+    /[&<>"']/g,
+    function(m){
+
+      return {
+        '&':'&amp;',
+        '<':'&lt;',
+        '>':'&gt;',
+        '"':'&quot;',
+        "'":'&#039;'
+
+      }[m];
+
+    }
+  );
+
+}
+
+
+/* =========================
+   AI WEBSITE GENERATOR
+========================= */
+
+async function buildWebsite(){
 
   const idea =
-    document.getElementById("idea").value.trim();
+    document
+      .getElementById('idea')
+      .value
+      .trim();
 
   const style =
-    document.getElementById("style").value;
+    document
+      .getElementById('style')
+      .value;
 
   const color =
-    document.getElementById("color").value;
+    document
+      .getElementById('color')
+      .value;
 
   const status =
-    document.getElementById("status");
+    document
+      .getElementById('status');
 
   const preview =
-    document.getElementById("preview");
-
-  const button =
-    document.getElementById("generateBtn");
-
-  const loading =
-    document.getElementById("loading");
+    document
+      .getElementById('preview');
 
 
   if(!idea){
 
     status.textContent =
-      "⚠️ Shkruaj fillimisht çfarë website-i dëshiron.";
+      'Shkruaj së pari çfarë website-i dëshiron.';
 
     return;
 
   }
 
 
-  button.disabled = true;
-
-  button.textContent =
-    "⏳ AI po krijon...";
-
-  loading.classList.add("active");
-
   status.textContent =
-    "AI po krijon dizajnin...";
+    '🤖 AI po krijon website-in...';
 
 
   try{
 
-    /*
-      KËTU PËRDORET URL-JA DIREKTE E BACKEND-IT
-    */
+    const prompt = `
 
-    const response = await fetch(
-      "https://lisikumnovaai.vercel.app/api/chat",
-      {
-        method:"POST",
+You are a professional website designer and developer.
+
+Create a complete modern responsive website.
+
+User request:
+${idea}
+
+Style:
+${style}
+
+Primary color:
+${color}
+
+IMPORTANT:
+
+Return ONLY the complete HTML code.
+
+Do not use markdown.
+
+Do not write explanations.
+
+The HTML must include:
+
+- modern design
+- responsive mobile layout
+- navigation
+- hero section
+- services/features
+- gallery or portfolio section
+- about section
+- contact section
+- footer
+- buttons
+- professional typography
+- animations where appropriate
+
+The website should look like a real professional business website.
+
+`;
+
+
+    const response =
+      await fetch('/api/chat',{
+
+        method:'POST',
 
         headers:{
-          "Content-Type":"application/json"
+          'Content-Type':
+            'application/json'
         },
 
         body:JSON.stringify({
-
-          prompt:`
-
-Ti je një web designer dhe developer profesionist.
-
-Krijo një website komplet HTML për këtë klient:
-
-${idea}
-
-Stili:
-${style}
-
-Ngjyra kryesore:
-${color}
-
-KËRKESA:
-
-- Krijo website profesional.
-- Responsive për telefon, tablet dhe PC.
-- Krijo navigation menu.
-- Krijo Hero Section.
-- Krijo About Section.
-- Krijo Services Section.
-- Krijo Gallery nëse është e përshtatshme.
-- Krijo Pricing nëse është e përshtatshme.
-- Krijo Contact Section.
-- Krijo butona modernë.
-- Përdor animacione të lehta.
-- Përdor ngjyrën ${color}.
-- Dizajni duhet të duket profesional dhe modern.
-- HTML, CSS dhe JavaScript duhet të jenë në një dokument.
-- Mos përdor libra të jashtëm.
-- Mos jep shpjegime.
-- Mos përdor Markdown.
-- Kthe vetëm kodin komplet HTML.
-- Fillojë direkt me <!DOCTYPE html>.
-
-Krijo dizajnin sa më profesional që mundesh.
-
-`
-
+          prompt:prompt
         })
 
-      }
-
-    );
+      });
 
 
     const data =
@@ -495,203 +622,203 @@ Krijo dizajnin sa më profesional që mundesh.
 
       throw new Error(
         data.error ||
-        "Gabim nga backend/API."
+        'API error'
       );
 
     }
 
 
     let html =
-      data.result || "";
+      data.result || '';
 
-
-    /*
-      Heqim ```html nëse AI e kthen
-    */
 
     html =
       html
-      .replace(/^```html\s*/i,"")
-      .replace(/^```\s*/i,"")
-      .replace(/\s*```$/i,"")
-      .trim();
+        .replace(/^```html/i,'')
+        .replace(/^```/,'')
+        .replace(/```$/,'')
+        .trim();
 
-
-    if(!html){
-
-      throw new Error(
-        "AI nuk ktheu HTML."
-      );
-
-    }
-
-
-    /*
-      SHFAQ WEBSITE-IN
-    */
 
     preview.srcdoc =
       html;
 
 
     status.textContent =
-      "✅ Website u krijua me sukses nga AI!";
+      '✅ Website u krijua me sukses!';
 
 
-  }
+    document
+      .getElementById('paymentSection')
+      .scrollIntoView({
+        behavior:'smooth'
+      });
 
-  catch(error){
+
+  }catch(error){
 
     console.error(error);
 
     status.textContent =
-      "❌ Gabim: " +
+      '❌ Gabim: ' +
       error.message;
-
-
-    preview.srcdoc = `
-
-      <!DOCTYPE html>
-
-      <html>
-
-      <body style="
-        font-family:Arial;
-        padding:40px;
-        color:#222;
-      ">
-
-        <h2>Ndodhi një gabim</h2>
-
-        <p>
-          ${escapeHtml(error.message)}
-        </p>
-
-      </body>
-
-      </html>
-
-    `;
-
-  }
-
-
-  finally{
-
-    button.disabled = false;
-
-    button.textContent =
-      "✨ Krijo dizajnin me AI";
-
-    loading.classList.remove("active");
 
   }
 
 }
 
 
-/* =====================================================
+/* =========================
+   PAYMENT
+========================= */
+
+function startPayment(packageName,price){
+
+  /*
+    PAYsera do të lidhet këtu.
+
+    Për momentin nuk bëjmë pagesë reale.
+    Kjo pjesë do të lidhet me backend-in
+    pasi të aktivizohet Paysera Checkout.
+  */
+
+
+  const status =
+    document.getElementById('status');
+
+
+  status.textContent =
+    `💳 Paketa ${packageName} — ${price}€ është zgjedhur. Paysera do të lidhet së shpejti.`;
+
+
+  alert(
+    `Paketa ${packageName} (${price}€) u zgjodh.\n\nPaysera do të lidhet këtu pasi të aktivizohet llogaria.`
+  );
+
+}
+
+
+/* =========================
    RESET
-===================================================== */
+========================= */
 
 function resetPreview(){
 
-  document.getElementById("idea").value = "";
-
-  document.getElementById("preview").srcdoc = "";
-
-  document.getElementById("status").textContent =
-    "Gati për të krijuar website-in.";
-
-}
+  document
+    .getElementById('idea')
+    .value='';
 
 
-/* =====================================================
-   ESCAPE ERROR TEXT
-===================================================== */
+  document
+    .getElementById('preview')
+    .srcdoc='';
 
-function escapeHtml(text){
 
-  return String(text)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+  document
+    .getElementById('status')
+    .textContent =
+      'Gati për krijim.';
 
 }
 
 
-/* =====================================================
+/* =========================
    INITIAL PREVIEW
-===================================================== */
+========================= */
 
-window.addEventListener("load",function(){
+window.addEventListener(
+  'load',
+  function(){
 
-  document.getElementById("preview").srcdoc = `
+    document
+      .getElementById('preview')
+      .srcdoc = `
 
-    <!DOCTYPE html>
+<!doctype html>
 
-    <html>
+<html>
 
-    <head>
+<head>
 
-      <meta charset="UTF-8">
+<meta charset="utf-8">
 
-      <style>
+<meta name="viewport"
+content="width=device-width,initial-scale=1">
 
-        body{
-          margin:0;
-          font-family:Arial;
-          background:#0b0f15;
-          color:white;
-          display:flex;
-          align-items:center;
-          justify-content:center;
-          min-height:100vh;
-          text-align:center;
-        }
+<style>
 
-        .box{
-          max-width:600px;
-          padding:40px;
-        }
+body{
+margin:0;
+font-family:Arial;
+background:#0b0d12;
+color:white;
+}
 
-        h1{
-          font-size:42px;
-          margin-bottom:15px;
-        }
+.hero{
+min-height:500px;
+display:flex;
+align-items:center;
+padding:60px;
+background:
+linear-gradient(
+135deg,
+#151923,
+#0b0d12
+);
+}
 
-        p{
-          color:#aeb6c2;
-          line-height:1.6;
-        }
+h1{
+font-size:55px;
+margin:0 0 20px;
+}
 
-      </style>
+p{
+color:#b7c0cc;
+font-size:18px;
+line-height:1.6;
+}
 
-    </head>
+</style>
 
-    <body>
+</head>
 
-      <div class="box">
+<body>
 
-        <h1>🤖 AI Website Builder</h1>
+<div class="hero">
 
-        <p>
-          Shkruaj kërkesën në anën e majtë
-          dhe kliko
-          <b>Krijo dizajnin me AI</b>.
-        </p>
+<div>
 
-      </div>
+<div style="
+color:#7c3aed;
+font-weight:bold;
+margin-bottom:15px;
+">
 
-    </body>
+AI WEBSITE BUILDER
 
-    </html>
+</div>
 
-  `;
+<h1>
+Website-i yt fillon këtu.
+</h1>
 
-});
+<p>
+Përshkruaj idenë tënde dhe AI do të krijojë një website profesional për ty.
+</p>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
+
+`;
+
+  }
+
+);
 
 </script>
 
