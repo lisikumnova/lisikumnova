@@ -1,6 +1,5 @@
 export default async function handler(req, res) {
 
-  // Lejo kërkesat nga website-i
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
     "Access-Control-Allow-Methods",
@@ -11,12 +10,10 @@ export default async function handler(req, res) {
     "Content-Type"
   );
 
-  // Browser CORS preflight
   if (req.method === "OPTIONS") {
     return res.status(200).end();
   }
 
-  // Vetëm POST
   if (req.method !== "POST") {
     return res.status(405).json({
       error: "Method not allowed"
@@ -33,27 +30,34 @@ export default async function handler(req, res) {
       });
     }
 
-    const apiKey = process.env.OPENAI_API_KEY;
+    const apiKey = process.env.GEMINI_API_KEY;
 
     if (!apiKey) {
       return res.status(500).json({
-        error: "OPENAI_API_KEY nuk u gjet në Vercel."
+        error: "GEMINI_API_KEY nuk u gjet në Vercel."
       });
     }
 
     const response = await fetch(
-      "https://api.openai.com/v1/responses",
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
       {
         method: "POST",
 
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${apiKey}`
+          "x-goog-api-key": apiKey
         },
 
         body: JSON.stringify({
-          model: "gpt-5",
-          input: prompt
+          contents: [
+            {
+              parts: [
+                {
+                  text: prompt
+                }
+              ]
+            }
+          ]
         })
       }
     );
@@ -64,12 +68,23 @@ export default async function handler(req, res) {
       return res.status(response.status).json({
         error:
           data.error?.message ||
-          "OpenAI API error"
+          "Gemini API error"
+      });
+    }
+
+    const result =
+      data.candidates?.[0]?.content?.parts
+        ?.map(part => part.text || "")
+        .join("") || "";
+
+    if (!result) {
+      return res.status(500).json({
+        error: "Gemini nuk ktheu rezultat."
       });
     }
 
     return res.status(200).json({
-      result: data.output_text || ""
+      result: result
     });
 
   } catch (error) {
