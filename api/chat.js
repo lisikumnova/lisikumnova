@@ -1,22 +1,12 @@
 export default async function handler(req, res) {
-
-  // CORS
   res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "POST, OPTIONS"
-  );
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "Content-Type"
-  );
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
-  // CORS preflight
   if (req.method === "OPTIONS") {
     return res.status(200).end();
   }
 
-  // Only POST
   if (req.method !== "POST") {
     return res.status(405).json({
       error: "Method not allowed"
@@ -24,7 +14,6 @@ export default async function handler(req, res) {
   }
 
   try {
-
     const { prompt } = req.body || {};
 
     if (!prompt) {
@@ -33,7 +22,6 @@ export default async function handler(req, res) {
       });
     }
 
-    // Gemini API Key
     const apiKey = process.env.GEMINI_API_KEY;
 
     if (!apiKey) {
@@ -42,73 +30,67 @@ export default async function handler(req, res) {
       });
     }
 
-    // Gemini API
-    const response = await fetch(
-      "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent",
-      {
-        method: "POST",
+    const url =
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent";
 
-        headers: {
-          "Content-Type": "application/json",
-          "x-goog-api-key": apiKey
-        },
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-goog-api-key": apiKey
+      },
+      body: JSON.stringify({
+        contents: [
+          {
+            role: "user",
+            parts: [
+              {
+                text: prompt
+              }
+            ]
+          }
+        ]
+      })
+    });
 
-        body: JSON.stringify({
-          contents: [
-            {
-              role: "user",
-              parts: [
-                {
-                  text: prompt
-                }
-              ]
-            }
-          ]
-        })
-      }
-    );
+    const text = await response.text();
 
-    const data = await response.json();
+    let data;
 
-    // Gemini error
-    if (!response.ok) {
-
-      console.error("Gemini API error:", data);
-
-      return res.status(response.status).json({
-        error:
-          data?.error?.message ||
-          "Gemini API error"
+    try {
+      data = JSON.parse(text);
+    } catch {
+      return res.status(500).json({
+        error: "Gemini returned an invalid response."
       });
     }
 
-    // Get generated text
+    if (!response.ok) {
+      return res.status(response.status).json({
+        error: data?.error?.message || "Gemini API error"
+      });
+    }
+
     const result =
       data?.candidates?.[0]?.content?.parts
         ?.map(part => part.text || "")
         .join("") || "";
 
     if (!result) {
-
       return res.status(500).json({
-        error: "Gemini nuk ktheu rezultat."
+        error: "Gemini nuk ktheu tekst."
       });
-
     }
 
     return res.status(200).json({
-      result: result
+      result
     });
 
   } catch (error) {
-
-    console.error("Server error:", error);
+    console.error(error);
 
     return res.status(500).json({
-      error:
-        error?.message ||
-        "Server error"
+      error: error?.message || "Server error"
     });
-
   }
 }
